@@ -14,6 +14,7 @@
 		424E7D482C370F64001EAD2E /* BookletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E7D472C370F64001EAD2E /* BookletUITests.swift */; };
 		424E7D4A2C370F64001EAD2E /* BookletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E7D492C370F64001EAD2E /* BookletUITestsLaunchTests.swift */; };
 		424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E7D562C3713CE001EAD2E /* CalendarView.swift */; };
+		42C14FC32C3C3615007C18E3 /* SpreadsheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C14FC22C3C3615007C18E3 /* SpreadsheetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		424E7D472C370F64001EAD2E /* BookletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookletUITests.swift; sourceTree = "<group>"; };
 		424E7D492C370F64001EAD2E /* BookletUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookletUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		424E7D562C3713CE001EAD2E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		42C14FC22C3C3615007C18E3 /* SpreadsheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreadsheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				424E7D342C370F64001EAD2E /* Booklet.entitlements */,
 				424E7D312C370F64001EAD2E /* Preview Content */,
 				424E7D562C3713CE001EAD2E /* CalendarView.swift */,
+				42C14FC22C3C3615007C18E3 /* SpreadsheetView.swift */,
 			);
 			path = Booklet;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */,
+				42C14FC32C3C3615007C18E3 /* SpreadsheetView.swift in Sources */,
 				424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
