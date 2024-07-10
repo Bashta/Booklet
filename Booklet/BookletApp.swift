@@ -7,10 +7,18 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         FirebaseApp.configure()
+    }
+    
+    func application(_ application: NSApplication, open urls: [URL]) {
+        for url in urls {
+            GIDSignIn.sharedInstance.handle(url)
+        }
     }
 }
 
