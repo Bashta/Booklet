@@ -20,8 +20,10 @@ struct MainView: View {
     }
 }
 
-extension MainView {
-    private var content: some View {
+// MARK: - Views
+
+private extension MainView {
+    var content: some View {
         TabView(selection: $selectedTab) {
             ForEach(Tabs.allCases) { tab in
                 Tab(tab.name, systemImage: tab.symbol, value: tab) {
@@ -32,9 +34,10 @@ extension MainView {
         }
     }
     
-    private var contentForSelectedTab: some View {
+    var contentForSelectedTab: some View {
         switch selectedTab {
         case .calendar: AnyView(CalendarView())
+        case .customers: AnyView(CustomersView())
         default: AnyView(Text("Selected \(selectedTab.name) Menu item"))
         }
     }
