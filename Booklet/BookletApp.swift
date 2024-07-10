@@ -6,9 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseCore
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        FirebaseApp.configure()
+    }
+}
 
 @main
 struct BookletApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     var body: some Scene {
         WindowGroup {
             MainView()
