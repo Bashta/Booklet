@@ -8,28 +8,37 @@
 import SwiftUI
 
 struct MainView: View {
-    private var title: String { "Booklet" }
+    // MARK: - State
+
+    @State private var selectedTab: Tabs = .home
+
+    // MARK: - Decorations
+
+    private var title: String { String(localized: "Booklet", comment: "Navigation Bar Title") }
+
+    // MARK: - Content
     
     var body: some View {
+        content
+        .tabViewStyle(.sidebarAdaptable)
+    }
+}
 
-        NavigationSplitView {
-            List() {
-                ForEach(0..<5) { index in
-                    NavigationLink {
-                        Text("\(index)")
-                    } label: {
-                        HStack {
-                            Image(systemName: "calendar.badge.clock")
-                            Text("Calendar")
-                        }
-                    }
-                    .tag(index)
+extension MainView {
+    private var content: some View {
+        TabView(selection: $selectedTab) {
+            ForEach(Tabs.allCases) { tab in
+                Tab(tab.name, systemImage: tab.symbol, value: tab) {
+                    contentForSelectedTab
                 }
+                .customizationID(tab.customizationID)
             }
-            .navigationTitle(title)
-            .frame(minWidth: 100)
-        } detail: {
-            Text("Select an option")
+        }
+    }
+    
+    private var contentForSelectedTab: some View {
+        switch selectedTab {
+        default: Text("Selected \(selectedTab.name) Menu item")
         }
     }
 }

@@ -15,6 +15,8 @@
 		424E7D4A2C370F64001EAD2E /* BookletUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E7D492C370F64001EAD2E /* BookletUITestsLaunchTests.swift */; };
 		424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E7D562C3713CE001EAD2E /* CalendarView.swift */; };
 		42C14FC52C3DCC1D007C18E3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C14FC42C3DCC1D007C18E3 /* MainView.swift */; };
+		42D22E782C3DE15700E1CF6C /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D22E772C3DE15700E1CF6C /* Tabs.swift */; };
+		42D22E7A2C3DE8A000E1CF6C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D22E792C3DE8A000E1CF6C /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		424E7D492C370F64001EAD2E /* BookletUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookletUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		424E7D562C3713CE001EAD2E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		42C14FC42C3DCC1D007C18E3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		42D22E772C3DE15700E1CF6C /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
+		42D22E792C3DE8A000E1CF6C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				424E7D312C370F64001EAD2E /* Preview Content */,
 				424E7D562C3713CE001EAD2E /* CalendarView.swift */,
 				42C14FC42C3DCC1D007C18E3 /* MainView.swift */,
+				42D22E772C3DE15700E1CF6C /* Tabs.swift */,
+				42D22E792C3DE8A000E1CF6C /* Constants.swift */,
 			);
 			path = Booklet;
 			sourceTree = "<group>";
@@ -262,9 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D22E7A2C3DE8A000E1CF6C /* Constants.swift in Sources */,
 				424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */,
 				42C14FC52C3DCC1D007C18E3 /* MainView.swift in Sources */,
 				424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */,
+				42D22E782C3DE15700E1CF6C /* Tabs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

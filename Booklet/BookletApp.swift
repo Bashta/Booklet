@@ -12,7 +12,8 @@ struct BookletApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .frame(minWidth: 800, minHeight: 600)
+                .frame(minWidth: Constants.contentWindowWidth, maxWidth: .infinity, minHeight: Constants.contentWindowHeight, maxHeight: .infinity)
         }
+        .windowResizability(.contentSize)
     }
 }
