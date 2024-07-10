@@ -12,10 +12,6 @@ struct MainView: View {
 
     @State private var selectedTab: Tabs = .home
 
-    // MARK: - Decorations
-
-    private var title: String { String(localized: "Booklet", comment: "Navigation Bar Title") }
-
     // MARK: - Content
     
     var body: some View {
@@ -38,7 +34,8 @@ extension MainView {
     
     private var contentForSelectedTab: some View {
         switch selectedTab {
-        default: Text("Selected \(selectedTab.name) Menu item")
+        case .calendar: AnyView(CalendarView())
+        default: AnyView(Text("Selected \(selectedTab.name) Menu item"))
         }
     }
 }
