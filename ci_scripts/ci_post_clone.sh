@@ -15,7 +15,3 @@ mv "./GoogleService-Info.plist" "../Booklet/"
 # Confirm file movement
 echo "Contents of Booklet directory:"
 ls -la "../Booklet"
-
-# Print first few lines of the moved file
-echo "First few lines of GoogleService-Info.plist:"
-head -n 5 "../Booklet/GoogleService-Info.plist"
