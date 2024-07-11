@@ -9,23 +9,21 @@
 # Debug: Print current working directory
 echo "Current working directory: $(pwd)"
 
-# Debug: Print CI_WORKSPACE value
-echo "CI_WORKSPACE: $CI_WORKSPACE"
+# Debug: Print contents of current directory
+echo "Contents of current directory:"
+ls -la
 
-# Debug: List contents of CI_WORKSPACE
-echo "Contents of CI_WORKSPACE:"
-ls -R "$CI_WORKSPACE"
+# Debug: Print parent directory contents
+echo "Contents of parent directory:"
+ls -la ..
 
-# Create the directory if it doesn't exist
-mkdir -p "$CI_WORKSPACE/Booklet"
-
-# Write the file
-echo "$GOOGLE_SERVICE_INFO_PLIST" > "$CI_WORKSPACE/Booklet/GoogleService-Info.plist"
+# Attempt to write the file in the current directory
+echo "$GOOGLE_SERVICE_INFO_PLIST" > "./GoogleService-Info.plist"
 
 # Debug: Confirm file creation
-echo "Contents of $CI_WORKSPACE/Booklet:"
-ls -l "$CI_WORKSPACE/Booklet"
+echo "Contents of current directory after file creation:"
+ls -la
 
 # Debug: Print first few lines of the created file
 echo "First few lines of GoogleService-Info.plist:"
-head -n 5 "$CI_WORKSPACE/Booklet/GoogleService-Info.plist"
+head -n 5 "./GoogleService-Info.plist"
