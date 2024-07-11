@@ -22,7 +22,6 @@ struct CustomerForm: View {
                 get: { customer.phoneNumber ?? "" },
                 set: { customer.phoneNumber = $0.isEmpty ? nil : $0 }
             ))
-            // Add more fields as needed
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -118,16 +118,13 @@
 		424E7D2A2C370F63001EAD2E /* Booklet */ = {
 			isa = PBXGroup;
 			children = (
+				42BDC4E72C409C3E00B4A13C /* Utils */,
 				42ACA4432C3EF122009BA7D2 /* Views */,
 				42ACA4402C3EEE4E009BA7D2 /* Models */,
 				424E7D2B2C370F63001EAD2E /* BookletApp.swift */,
 				424E7D2F2C370F64001EAD2E /* Assets.xcassets */,
 				424E7D342C370F64001EAD2E /* Booklet.entitlements */,
 				424E7D312C370F64001EAD2E /* Preview Content */,
-				424E7D562C3713CE001EAD2E /* CalendarView.swift */,
-				42C14FC42C3DCC1D007C18E3 /* MainView.swift */,
-				42D22E772C3DE15700E1CF6C /* Tabs.swift */,
-				42D22E792C3DE8A000E1CF6C /* Constants.swift */,
 				42ACA44B2C3F1BA7009BA7D2 /* GoogleService-Info.plist */,
 			);
 			path = Booklet;
@@ -169,6 +166,9 @@
 		42ACA4432C3EF122009BA7D2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42D22E772C3DE15700E1CF6C /* Tabs.swift */,
+				42C14FC42C3DCC1D007C18E3 /* MainView.swift */,
+				424E7D562C3713CE001EAD2E /* CalendarView.swift */,
 				42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */,
 				42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */,
 			);
@@ -180,6 +180,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42BDC4E72C409C3E00B4A13C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				42D22E792C3DE8A000E1CF6C /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		42E19B7D2C3F519B00F70B1F /* ci_scripts */ = {
