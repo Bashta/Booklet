@@ -124,13 +124,11 @@
 		424E7D2A2C370F63001EAD2E /* Booklet */ = {
 			isa = PBXGroup;
 			children = (
+				427B64BB2C41F43F008AA0BA /* App */,
 				427B64AF2C409EA0008AA0BA /* Features */,
 				42BDC4E72C409C3E00B4A13C /* Utils */,
 				42ACA4432C3EF122009BA7D2 /* Views */,
 				42ACA4402C3EEE4E009BA7D2 /* Models */,
-				424E7D2B2C370F63001EAD2E /* BookletApp.swift */,
-				42C14FC42C3DCC1D007C18E3 /* MainView.swift */,
-				427B64B52C40A05A008AA0BA /* MainViewViewModel.swift */,
 				424E7D2F2C370F64001EAD2E /* Assets.xcassets */,
 				424E7D342C370F64001EAD2E /* Booklet.entitlements */,
 				424E7D312C370F64001EAD2E /* Preview Content */,
@@ -195,6 +193,16 @@
 				427B64B82C40A6EC008AA0BA /* AuthViewViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		427B64BB2C41F43F008AA0BA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				424E7D2B2C370F63001EAD2E /* BookletApp.swift */,
+				42C14FC42C3DCC1D007C18E3 /* MainView.swift */,
+				427B64B52C40A05A008AA0BA /* MainViewViewModel.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		42ACA4402C3EEE4E009BA7D2 /* Models */ = {
