@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var viewModel = MainViewViewModel()
+    // MARK: - VM
     
-    // MARK: - State
-    
-    @State private var selectedTab: Tabs = .home
-    
+    @Bindable private var viewModel = MainViewViewModel()
+
     // MARK: - Content
     
     var body: some View {
@@ -33,7 +31,7 @@ struct MainView: View {
 
 private extension MainView {
     var content: some View {
-        TabView(selection: $selectedTab) {
+        TabView(selection: $viewModel.selectedTab) {
             ForEach(Tabs.allCases) { tab in
                 Tab(tab.name, systemImage: tab.symbol, value: tab) {
                     contentForSelectedTab
@@ -44,10 +42,10 @@ private extension MainView {
     }
     
     var contentForSelectedTab: some View {
-        switch selectedTab {
+        switch viewModel.selectedTab {
         case .calendar: AnyView(CalendarView())
         case .customers: AnyView(CustomersView())
-        default: AnyView(Text("Selected \(selectedTab.name) Menu item"))
+        default: AnyView(Text("Selected \(viewModel.selectedTab.name) Menu item"))
         }
     }
 }

@@ -10,6 +10,7 @@ import FirebaseAuth
 
 @Observable
 class MainViewViewModel {
+    var selectedTab: Tabs = .home
     var isAuthenticated = false
     private var authStateHandler: AuthStateDidChangeListenerHandle?
     

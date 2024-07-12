@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AuthView: View {
 
-    @State private var viewModel = AuthViewViewModel()
+    @Bindable private var viewModel = AuthViewViewModel()
     
     var body: some View {
         VStack(spacing: 20) {
