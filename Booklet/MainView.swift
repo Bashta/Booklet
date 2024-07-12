@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var viewModel = MainViewViewModel()
+    
     // MARK: - State
-
+    
     @State private var selectedTab: Tabs = .home
-
+    
     // MARK: - Content
     
     var body: some View {
-        content
-        .tabViewStyle(.sidebarAdaptable)
+        Group {
+            if viewModel.isAuthenticated {
+                content
+                    .tabViewStyle(.sidebarAdaptable)
+            } else {
+                AuthView()
+            }
+        }
+        
     }
 }
 
