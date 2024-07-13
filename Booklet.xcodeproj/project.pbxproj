@@ -17,6 +17,8 @@
 		427B64B32C409EC9008AA0BA /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64B22C409EC9008AA0BA /* AuthView.swift */; };
 		427B64B62C40A05A008AA0BA /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64B52C40A05A008AA0BA /* MainViewViewModel.swift */; };
 		427B64B92C40A6EC008AA0BA /* AuthViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64B82C40A6EC008AA0BA /* AuthViewViewModel.swift */; };
+		427B64D12C42DCA4008AA0BA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64D02C42DCA4008AA0BA /* AuthService.swift */; };
+		427B64D52C42EC21008AA0BA /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64D42C42EC21008AA0BA /* AppUser.swift */; };
 		42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACA4412C3EEE61009BA7D2 /* Customer.swift */; };
 		42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */; };
 		42ACA4482C3EF22D009BA7D2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 42ACA4472C3EF22D009BA7D2 /* FirebaseAuth */; };
@@ -61,6 +63,8 @@
 		427B64B22C409EC9008AA0BA /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		427B64B52C40A05A008AA0BA /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		427B64B82C40A6EC008AA0BA /* AuthViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewViewModel.swift; sourceTree = "<group>"; };
+		427B64D02C42DCA4008AA0BA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		427B64D42C42EC21008AA0BA /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		42ACA4412C3EEE61009BA7D2 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerForm.swift; sourceTree = "<group>"; };
 		42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersView.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 		424E7D2A2C370F63001EAD2E /* Booklet */ = {
 			isa = PBXGroup;
 			children = (
+				427B64D32C42DF23008AA0BA /* Services */,
 				427B64BB2C41F43F008AA0BA /* App */,
 				427B64AF2C409EA0008AA0BA /* Features */,
 				42BDC4E72C409C3E00B4A13C /* Utils */,
@@ -205,10 +210,19 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		427B64D32C42DF23008AA0BA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				427B64D02C42DCA4008AA0BA /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		42ACA4402C3EEE4E009BA7D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				42ACA4412C3EEE61009BA7D2 /* Customer.swift */,
+				427B64D42C42EC21008AA0BA /* AppUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -388,8 +402,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D22E7A2C3DE8A000E1CF6C /* Constants.swift in Sources */,
+				427B64D52C42EC21008AA0BA /* AppUser.swift in Sources */,
 				424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */,
 				42C14FC52C3DCC1D007C18E3 /* MainView.swift in Sources */,
+				427B64D12C42DCA4008AA0BA /* AuthService.swift in Sources */,
 				42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */,
 				424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */,
 				42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */,

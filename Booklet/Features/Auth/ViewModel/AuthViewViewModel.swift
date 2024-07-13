@@ -5,56 +5,47 @@
 //  Created by Erison Veshi on 12.7.24.
 //
 
-
-import SwiftUI
-import FirebaseAuth
+import Foundation
 
 @Observable
 class AuthViewViewModel {
+    private let authService: AuthServiceProtocol
     var email = ""
     var password = ""
     var isSignUp = false
     var showError = false
     var errorMessage = ""
     
-    func performAuth() {
-        if isSignUp {
-            signUp()
-        } else {
-            signIn()
+    init(authService: AuthServiceProtocol = AuthService()) {
+        self.authService = authService
+    }
+    
+    func performAuth() async {
+        do {
+            let user = try await (isSignUp ? signUp() : signIn())
+            await handleAuthResult(user)
+        } catch {
+            await handleAuthError(error)
         }
     }
     
-    private func signUp() {
-        Task {
-            do {
-                let result = try await Auth.auth().createUser(withEmail: email, password: password)
-                await handleAuthResult(result, nil)
-            } catch {
-                await handleAuthResult(nil, error)
-            }
-        }
+    private func signUp() async throws -> AppUser {
+        return try await authService.signUp(email: email, password: password)
     }
     
-    private func signIn() {
-        Task {
-            do {
-                let result = try await Auth.auth().signIn(withEmail: email, password: password)
-                await handleAuthResult(result, nil)
-            } catch {
-                await handleAuthResult(nil, error)
-            }
-        }
+    private func signIn() async throws -> AppUser {
+        return try await authService.signIn(email: email, password: password)
     }
     
     @MainActor
-    private func handleAuthResult(_ result: AuthDataResult?, _ error: Error?) {
-        if let error = error {
-            showError = true
-            errorMessage = error.localizedDescription
-        } else {
-            showError = false
-            errorMessage = ""
-        }
+    private func handleAuthResult(_ user: AppUser) {
+        showError = false
+        errorMessage = ""
+    }
+    
+    @MainActor
+    private func handleAuthError(_ error: Error) {
+        showError = true
+        errorMessage = error.localizedDescription
     }
 }

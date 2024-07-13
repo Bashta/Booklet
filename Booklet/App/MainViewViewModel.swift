@@ -6,15 +6,16 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 @Observable
 class MainViewViewModel {
+    private let authService: AuthServiceProtocol
     var selectedTab: Tabs = .home
     var isAuthenticated = false
-    private var authStateHandler: AuthStateDidChangeListenerHandle?
+    private var authStateHandler: Any?
     
-    init() {
+    init(authService: AuthServiceProtocol = AuthService()) {
+        self.authService = authService
         setupAuthStateListener()
     }
     
@@ -23,7 +24,7 @@ class MainViewViewModel {
     }
     
     private func setupAuthStateListener() {
-        authStateHandler = Auth.auth().addStateDidChangeListener { (_, user) in
+        authStateHandler = authService.addStateDidChangeListener { user in
             Task { @MainActor in
                 self.isAuthenticated = user != nil
             }
@@ -32,19 +33,17 @@ class MainViewViewModel {
     
     private func removeAuthStateListener() {
         if let handler = authStateHandler {
-            Auth.auth().removeStateDidChangeListener(handler)
+            authService.removeStateDidChangeListener(handler)
         }
     }
     
     @MainActor
-    func signOut() {
-        Task {
-            do {
-                try Auth.auth().signOut()
-                isAuthenticated = false
-            } catch {
-                print("Error signing out: \(error.localizedDescription)")
-            }
+    func signOut() async {
+        do {
+            try await authService.signOut()
+            isAuthenticated = false
+        } catch {
+            print("Error signing out: \(error.localizedDescription)")
         }
     }
 }

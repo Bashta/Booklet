@@ -21,7 +21,9 @@ struct MainView: View {
                     .tabViewStyle(.sidebarAdaptable)
                     .toolbar {
                         ToolbarItem(placement: .automatic) {
-                            Button(action: viewModel.signOut) {
+                            Button {
+                                Task { await viewModel.signOut() }
+                            } label: {
                                 Label("Log Out", systemImage: "rectangle.portrait.and.arrow.right")
                             }
                         }
