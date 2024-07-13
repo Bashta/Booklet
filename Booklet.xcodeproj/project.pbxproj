@@ -128,6 +128,7 @@
 		424E7D2A2C370F63001EAD2E /* Booklet */ = {
 			isa = PBXGroup;
 			children = (
+				427B64D62C42F1C6008AA0BA /* Core */,
 				427B64D32C42DF23008AA0BA /* Services */,
 				427B64BB2C41F43F008AA0BA /* App */,
 				427B64AF2C409EA0008AA0BA /* Features */,
@@ -218,6 +219,30 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		427B64D62C42F1C6008AA0BA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				427B64D82C42F1DB008AA0BA /* Model */,
+				427B64D72C42F1CE008AA0BA /* View */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		427B64D72C42F1CE008AA0BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		427B64D82C42F1DB008AA0BA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42D22E772C3DE15700E1CF6C /* Tabs.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		42ACA4402C3EEE4E009BA7D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +255,6 @@
 		42ACA4432C3EF122009BA7D2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				42D22E772C3DE15700E1CF6C /* Tabs.swift */,
 				424E7D562C3713CE001EAD2E /* CalendarView.swift */,
 				42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */,
 				42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */,
