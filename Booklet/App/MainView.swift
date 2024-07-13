@@ -52,17 +52,11 @@ private extension MainView {
     
     var logOutToolbarItem: ToolbarItem<(), some View> {
         ToolbarItem(placement: .automatic) {
-            Button {
+            AuthButton(title: "Log Out",
+                       systemImage: "rectangle.portrait.and.arrow.right",
+                       isLoading: viewModel.isLoading) {
                 Task { await viewModel.signOut() }
-            } label: {
-                if viewModel.isLoading {
-                    ProgressView()
-                        .progressViewStyle(DefaultProgressViewStyle())
-                } else {
-                    Label("Log Out", systemImage: "rectangle.portrait.and.arrow.right")
-                }
             }
-            .disabled(viewModel.isLoading)
         }
     }
 }

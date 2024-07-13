@@ -8,21 +8,33 @@
 import SwiftUI
 
 struct AuthButton: View {
-    let title: String
-    let isLoading: Bool
-    let action: () async -> Void
-
+    private let title: String
+    private var systemImage: String? = nil
+    private let isLoading: Bool
+    private let action: () -> Void
+    
+    init(title: String, systemImage: String? = nil, isLoading: Bool, action: @escaping () -> Void) {
+        self.title = title
+        self.systemImage = systemImage
+        self.isLoading = isLoading
+        self.action = action
+    }
+    
     var body: some View {
         Button {
-            Task { await action() }
+            action()
         } label: {
             if isLoading {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(tint: .white))
                     .padding(4)
             } else {
-                Text(title)
-                    .padding(4)
+                if let systemImage = systemImage {
+                    Label(title, systemImage: systemImage)
+                } else {
+                    Text(title)
+                        .padding(4)
+                }
             }
         }
         .frame(maxWidth: .infinity)

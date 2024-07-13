@@ -35,7 +35,7 @@ struct AuthView: View {
                 title: viewModel.isSignUp ? "Sign Up" : "Sign In",
                 isLoading: viewModel.isLoading
             ) {
-                await viewModel.performAuth()
+                Task { await viewModel.performAuth() }
             }
             
             Button(action: { viewModel.isSignUp.toggle() }) {
