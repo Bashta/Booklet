@@ -31,24 +31,15 @@ struct AuthView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.password)
             
-            Button {
-                Task {
-                    await viewModel.performAuth()
-                }
-            } label: {
-                if viewModel.isLoading {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                } else {
-                    Text(viewModel.isSignUp ? "Sign Up" : "Sign In")
-                }
+            AuthButton(
+                title: viewModel.isSignUp ? "Sign Up" : "Sign In",
+                isLoading: viewModel.isLoading
+            ) {
+                await viewModel.performAuth()
             }
-            .frame(maxWidth: .infinity)
-            .buttonStyle(.borderedProminent)
-            .disabled(viewModel.isLoading)
             
             Button(action: { viewModel.isSignUp.toggle() }) {
-                Text(viewModel.isSignUp ? "Already have an account? Sign In" : "Don't have an account? Sign Up")
+                Text(viewModel.isSignUp ? "Already have an account? **Sign In**" : "Don't have an account yet? **Sign Up Now**")
             }
             .buttonStyle(.plain)
             

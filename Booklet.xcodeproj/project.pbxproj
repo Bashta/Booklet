@@ -19,6 +19,7 @@
 		427B64B92C40A6EC008AA0BA /* AuthViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64B82C40A6EC008AA0BA /* AuthViewViewModel.swift */; };
 		427B64D12C42DCA4008AA0BA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64D02C42DCA4008AA0BA /* AuthService.swift */; };
 		427B64D52C42EC21008AA0BA /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64D42C42EC21008AA0BA /* AppUser.swift */; };
+		427B64DA2C42FE3B008AA0BA /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64D92C42FE3B008AA0BA /* AuthButton.swift */; };
 		42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACA4412C3EEE61009BA7D2 /* Customer.swift */; };
 		42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */; };
 		42ACA4482C3EF22D009BA7D2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 42ACA4472C3EF22D009BA7D2 /* FirebaseAuth */; };
@@ -65,6 +66,7 @@
 		427B64B82C40A6EC008AA0BA /* AuthViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewViewModel.swift; sourceTree = "<group>"; };
 		427B64D02C42DCA4008AA0BA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		427B64D42C42EC21008AA0BA /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		427B64D92C42FE3B008AA0BA /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		42ACA4412C3EEE61009BA7D2 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerForm.swift; sourceTree = "<group>"; };
 		42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		427B64D72C42F1CE008AA0BA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				427B64D92C42FE3B008AA0BA /* AuthButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42D22E7A2C3DE8A000E1CF6C /* Constants.swift in Sources */,
+				427B64DA2C42FE3B008AA0BA /* AuthButton.swift in Sources */,
 				427B64D52C42EC21008AA0BA /* AppUser.swift in Sources */,
 				424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */,
 				42C14FC52C3DCC1D007C18E3 /* MainView.swift in Sources */,
