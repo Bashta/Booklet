@@ -19,21 +19,7 @@ struct MainView: View {
             if viewModel.isAuthenticated {
                 content
                     .tabViewStyle(.sidebarAdaptable)
-                    .toolbar {
-                        ToolbarItem(placement: .automatic) {
-                            Button {
-                                Task { await viewModel.signOut() }
-                            } label: {
-                                if viewModel.isLoading {
-                                    ProgressView()
-                                        .progressViewStyle(DefaultProgressViewStyle())
-                                } else {
-                                    Label("Log Out", systemImage: "rectangle.portrait.and.arrow.right")
-                                }
-                            }
-                            .disabled(viewModel.isLoading)
-                        }
-                    }
+                    .toolbar { logOutToolbarItem }
             } else {
                 AuthView()
             }
@@ -61,6 +47,22 @@ private extension MainView {
         case .calendar: AnyView(CalendarView())
         case .customers: AnyView(CustomersView())
         default: AnyView(Text("Selected \(viewModel.selectedTab.name) Menu item"))
+        }
+    }
+    
+    var logOutToolbarItem: ToolbarItem<(), some View> {
+        ToolbarItem(placement: .automatic) {
+            Button {
+                Task { await viewModel.signOut() }
+            } label: {
+                if viewModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(DefaultProgressViewStyle())
+                } else {
+                    Label("Log Out", systemImage: "rectangle.portrait.and.arrow.right")
+                }
+            }
+            .disabled(viewModel.isLoading)
         }
     }
 }
