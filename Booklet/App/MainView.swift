@@ -19,6 +19,13 @@ struct MainView: View {
             if viewModel.isAuthenticated {
                 content
                     .tabViewStyle(.sidebarAdaptable)
+                    .toolbar {
+                        ToolbarItem(placement: .automatic) {
+                            Button(action: viewModel.signOut) {
+                                Label("Log Out", systemImage: "rectangle.portrait.and.arrow.right")
+                            }
+                        }
+                    }
             } else {
                 AuthView()
             }
