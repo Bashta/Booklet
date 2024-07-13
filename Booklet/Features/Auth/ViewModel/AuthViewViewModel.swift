@@ -15,18 +15,21 @@ class AuthViewViewModel {
     var isSignUp = false
     var showError = false
     var errorMessage = ""
+    var isLoading = false
     
     init(authService: AuthServiceProtocol = AuthService()) {
         self.authService = authService
     }
     
     func performAuth() async {
+        isLoading = true
         do {
             let user = try await (isSignUp ? signUp() : signIn())
             await handleAuthResult(user)
         } catch {
             await handleAuthError(error)
         }
+        isLoading = false
     }
     
     private func signUp() async throws -> AppUser {

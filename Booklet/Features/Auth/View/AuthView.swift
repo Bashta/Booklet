@@ -36,10 +36,16 @@ struct AuthView: View {
                     await viewModel.performAuth()
                 }
             } label: {
-                Text(viewModel.isSignUp ? "Sign Up" : "Sign In")
-                    .frame(maxWidth: .infinity)
+                if viewModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                } else {
+                    Text(viewModel.isSignUp ? "Sign Up" : "Sign In")
+                }
             }
+            .frame(maxWidth: .infinity)
             .buttonStyle(.borderedProminent)
+            .disabled(viewModel.isLoading)
             
             Button(action: { viewModel.isSignUp.toggle() }) {
                 Text(viewModel.isSignUp ? "Already have an account? Sign In" : "Don't have an account? Sign Up")

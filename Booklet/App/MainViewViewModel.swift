@@ -12,6 +12,7 @@ class MainViewViewModel {
     private let authService: AuthServiceProtocol
     var selectedTab: Tabs = .home
     var isAuthenticated = false
+    var isLoading = false
     private var authStateHandler: Any?
     
     init(authService: AuthServiceProtocol = AuthService()) {
@@ -38,12 +39,14 @@ class MainViewViewModel {
     }
     
     @MainActor
-    func signOut() async {
-        do {
-            try await authService.signOut()
-            isAuthenticated = false
-        } catch {
-            print("Error signing out: \(error.localizedDescription)")
+        func signOut() async {
+            isLoading = true
+            do {
+                try await authService.signOut()
+                isAuthenticated = false
+            } catch {
+                print("Error signing out: \(error.localizedDescription)")
+            }
+            isLoading = false
         }
-    }
 }

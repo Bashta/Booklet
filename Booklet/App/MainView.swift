@@ -24,8 +24,14 @@ struct MainView: View {
                             Button {
                                 Task { await viewModel.signOut() }
                             } label: {
-                                Label("Log Out", systemImage: "rectangle.portrait.and.arrow.right")
+                                if viewModel.isLoading {
+                                    ProgressView()
+                                        .progressViewStyle(DefaultProgressViewStyle())
+                                } else {
+                                    Label("Log Out", systemImage: "rectangle.portrait.and.arrow.right")
+                                }
                             }
+                            .disabled(viewModel.isLoading)
                         }
                     }
             } else {
