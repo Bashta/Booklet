@@ -1,0 +1,254 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "Add Customer" : {
+
+    },
+    "Add New Customer" : {
+
+    },
+    "Arrivals" : {
+      "comment" : "Tab title"
+    },
+    "auth.email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        }
+      }
+    },
+    "auth.error.emailAlreadyInUse" : {
+
+    },
+    "auth.error.emptyEmail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email cannot be empty"
+          }
+        }
+      }
+    },
+    "auth.error.emptyPassword" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password cannot be empty"
+          }
+        }
+      }
+    },
+    "auth.error.invalidEmail" : {
+
+    },
+    "auth.error.networkError" : {
+
+    },
+    "auth.error.unknown %@" : {
+
+    },
+    "auth.error.userNotFound" : {
+
+    },
+    "auth.error.weakPassword" : {
+
+    },
+    "auth.error.wrongPassword" : {
+
+    },
+    "auth.errorTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentication Error"
+          }
+        }
+      }
+    },
+    "auth.haveAccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already have an account? Sign In"
+          }
+        }
+      }
+    },
+    "auth.noAccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't have an account yet? Sign Up Now"
+          }
+        }
+      }
+    },
+    "auth.password" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        }
+      }
+    },
+    "auth.passwordStrength" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password Strength: %@"
+          }
+        }
+      }
+    },
+    "auth.passwordStrength %@" : {
+
+    },
+    "auth.passwordStrength.medium" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Medium"
+          }
+        }
+      }
+    },
+    "auth.passwordStrength.strong" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strong"
+          }
+        }
+      }
+    },
+    "auth.passwordStrength.weak" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weak"
+          }
+        }
+      }
+    },
+    "auth.signIn" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign In"
+          }
+        }
+      }
+    },
+    "auth.signUp" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign Up"
+          }
+        }
+      }
+    },
+    "auth.welcome" : {
+      "comment" : "Title in the Auth screen",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to Booklet"
+          }
+        }
+      }
+    },
+    "Calendar" : {
+      "comment" : "Tab title"
+    },
+    "common.ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "Customers" : {
+      "comment" : "Tab title"
+    },
+    "Email" : {
+
+    },
+    "First Name" : {
+
+    },
+    "Home" : {
+      "comment" : "Tab title"
+    },
+    "Last Name" : {
+
+    },
+    "No customers yet" : {
+
+    },
+    "Phone Number" : {
+
+    },
+    "Room: %lld" : {
+
+    },
+    "Select a customer or add a new one" : {
+
+    },
+    "Selected %@ Menu item" : {
+
+    },
+    "Start by adding your first customer. Click the button below to get started." : {
+
+    },
+    "Stats" : {
+      "comment" : "Tab title"
+    }
+  },
+  "version" : "1.0"
+}

@@ -22,7 +22,7 @@ struct PasswordStrengthView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Password Strength: \(strength.rawValue)")
+            Text("auth.passwordStrength \(strength.rawValue)")
                 .font(.caption)
             
             GeometryReader { geometry in
@@ -42,9 +42,9 @@ struct PasswordStrengthView: View {
 }
 
 enum PasswordStrength: String {
-    case weak = "Weak"
-    case medium = "Medium"
-    case strong = "Strong"
+    case weak = "auth.passwordStrength.weak"
+    case medium = "auth.passwordStrength.medium"
+    case strong = "auth.passwordStrength.strong"
     
     var color: Color {
         switch self {

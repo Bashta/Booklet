@@ -36,11 +36,11 @@ class AuthViewViewModel {
     
     private func isValidInput() -> Bool {
         guard !email.isEmpty else {
-            showError(message: "Email cannot be empty")
+            showError(message: String(localized: "auth.error.emptyEmail"))
             return false
         }
         guard !password.isEmpty else {
-            showError(message: "Password cannot be empty")
+            showError(message: String(localized: "auth.error.emptyPassword"))
             return false
         }
         return true

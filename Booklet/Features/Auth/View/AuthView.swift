@@ -19,15 +19,15 @@ struct AuthView: View {
                 .frame(width: 100, height: 100)
                 .foregroundColor(.accentColor)
             
-            Text("Welcome to Booklet")
+            Text("auth.welcome")
                 .font(.title)
                 .fontWeight(.bold)
             
-            TextField("Email", text: $viewModel.email)
+            TextField("auth.email", text: $viewModel.email)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.emailAddress)
             
-            SecureField("Password", text: $viewModel.password)
+            SecureField("auth.password", text: $viewModel.password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.password)
             
@@ -43,7 +43,7 @@ struct AuthView: View {
             }
             
             AuthButton(
-                title: viewModel.isSignUp ? "Sign Up" : "Sign In",
+                title: viewModel.isSignUp ? "auth.signUp" : "auth.signIn",
                 isLoading: viewModel.isLoading
             ) {
                 Task { await viewModel.performAuth() }
@@ -51,7 +51,7 @@ struct AuthView: View {
             .disabled(viewModel.email.isEmpty || viewModel.password.isEmpty)
             
             Button(action: { viewModel.isSignUp.toggle() }) {
-                Text(viewModel.isSignUp ? "Already have an account? **Sign In**" : "Don't have an account yet? **Sign Up Now**")
+                Text(viewModel.isSignUp ? "auth.haveAccount" : "auth.noAccount")
             }
             .buttonStyle(.plain)
             
@@ -62,8 +62,8 @@ struct AuthView: View {
         }
         .padding()
         .frame(width: 300)
-        .alert("Authentication Error", isPresented: $viewModel.showError) {
-            Button("OK") {
+        .alert("auth.errorTitle", isPresented: $viewModel.showError) {
+            Button("common.ok") {
                 viewModel.showError = false
             }
         } message: {

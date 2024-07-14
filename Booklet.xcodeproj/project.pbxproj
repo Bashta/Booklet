@@ -29,6 +29,7 @@
 		42B05DB02C3F4C300022D676 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 42B05DAF2C3F4C300022D676 /* GoogleSignInSwift */; };
 		42BF3D7F2C44601300E61833 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D7E2C44601300E61833 /* AuthError.swift */; };
 		42BF3D812C44739000E61833 /* PasswordStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D802C44739000E61833 /* PasswordStrengthView.swift */; };
+		42BF3D832C4476EC00E61833 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 42BF3D822C4476EC00E61833 /* Localizable.xcstrings */; };
 		42C14FC52C3DCC1D007C18E3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C14FC42C3DCC1D007C18E3 /* MainView.swift */; };
 		42D22E782C3DE15700E1CF6C /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D22E772C3DE15700E1CF6C /* Tabs.swift */; };
 		42D22E7A2C3DE8A000E1CF6C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D22E792C3DE8A000E1CF6C /* Constants.swift */; };
@@ -75,6 +76,7 @@
 		42ACA44B2C3F1BA7009BA7D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42BF3D7E2C44601300E61833 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		42BF3D802C44739000E61833 /* PasswordStrengthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStrengthView.swift; sourceTree = "<group>"; };
+		42BF3D822C4476EC00E61833 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		42C14FC42C3DCC1D007C18E3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		42D22E772C3DE15700E1CF6C /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		42D22E792C3DE8A000E1CF6C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		424E7D1F2C370F62001EAD2E = {
 			isa = PBXGroup;
 			children = (
+				42BF3D842C44780100E61833 /* SupportingFiles */,
 				42E19B7D2C3F519B00F70B1F /* ci_scripts */,
 				424E7D2A2C370F63001EAD2E /* Booklet */,
 				424E7D3C2C370F64001EAD2E /* BookletTests */,
@@ -294,6 +297,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		42BF3D842C44780100E61833 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				42BF3D852C44783700E61833 /* Localization */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		42BF3D852C44783700E61833 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				42BF3D822C4476EC00E61833 /* Localizable.xcstrings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		42E19B7D2C3F519B00F70B1F /* ci_scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +412,7 @@
 			knownRegions = (
 				en,
 				Base,
+				sq,
 			);
 			mainGroup = 424E7D1F2C370F62001EAD2E;
 			packageReferences = (
@@ -417,6 +437,7 @@
 			files = (
 				424E7D332C370F64001EAD2E /* Preview Assets.xcassets in Resources */,
 				424E7D302C370F64001EAD2E /* Assets.xcassets in Resources */,
+				42BF3D832C4476EC00E61833 /* Localizable.xcstrings in Resources */,
 				42ACA44C2C3F1BA7009BA7D2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +574,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -609,6 +631,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};

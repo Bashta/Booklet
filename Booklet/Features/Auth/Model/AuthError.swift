@@ -19,19 +19,19 @@ enum AuthError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidEmail:
-            return "The email address is badly formatted."
+            return String(localized: "auth.error.invalidEmail")
         case .weakPassword:
-            return "The password must be at least 6 characters long."
+            return String(localized: "auth.error.weakPassword")
         case .emailAlreadyInUse:
-            return "The email address is already in use by another account."
+            return String(localized: "auth.error.emailAlreadyInUse")
         case .userNotFound:
-            return "There is no user record corresponding to this identifier."
+            return String(localized: "auth.error.userNotFound")
         case .wrongPassword:
-            return "The password is invalid."
+            return String(localized: "auth.error.wrongPassword")
         case .networkError:
-            return "A network error occurred. Please check your connection and try again."
+            return String(localized: "auth.error.networkError")
         case .unknownError(let message):
-            return "An unknown error occurred: \(message)"
+            return String(localized: "auth.error.unknown \(message)")
         }
     }
 }
