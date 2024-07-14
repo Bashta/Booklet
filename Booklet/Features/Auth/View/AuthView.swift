@@ -26,6 +26,7 @@ struct AuthView: View {
             TextField("auth.email", text: $viewModel.email)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.emailAddress)
+                .disableAutocorrection(true)
             
             SecureField("auth.password", text: $viewModel.password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
