@@ -31,6 +31,10 @@ struct AuthView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.password)
             
+            if viewModel.isSignUp {
+                PasswordStrengthView(password: viewModel.password)
+            }
+
             if viewModel.showError {
                 Text(viewModel.errorMessage)
                     .foregroundColor(.red)
