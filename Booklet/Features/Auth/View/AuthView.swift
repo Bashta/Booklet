@@ -31,12 +31,20 @@ struct AuthView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.password)
             
+            if viewModel.showError {
+                Text(viewModel.errorMessage)
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+            }
+            
             AuthButton(
                 title: viewModel.isSignUp ? "Sign Up" : "Sign In",
                 isLoading: viewModel.isLoading
             ) {
                 Task { await viewModel.performAuth() }
             }
+            .disabled(viewModel.email.isEmpty || viewModel.password.isEmpty)
             
             Button(action: { viewModel.isSignUp.toggle() }) {
                 Text(viewModel.isSignUp ? "Already have an account? **Sign In**" : "Don't have an account yet? **Sign Up Now**")
@@ -50,10 +58,13 @@ struct AuthView: View {
         }
         .padding()
         .frame(width: 300)
-    }
-    
-    private func performAuth() {
-        // TODO: - Implement
+        .alert("Authentication Error", isPresented: $viewModel.showError) {
+            Button("OK") {
+                viewModel.showError = false
+            }
+        } message: {
+            Text(viewModel.errorMessage)
+        }
     }
 }
 

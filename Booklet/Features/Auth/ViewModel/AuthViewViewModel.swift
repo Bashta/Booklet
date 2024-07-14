@@ -22,6 +22,8 @@ class AuthViewViewModel {
     }
     
     func performAuth() async {
+        guard isValidInput() else { return }
+        
         isLoading = true
         do {
             let user = try await (isSignUp ? signUp() : signIn())
@@ -30,6 +32,18 @@ class AuthViewViewModel {
             await handleAuthError(error)
         }
         isLoading = false
+    }
+    
+    private func isValidInput() -> Bool {
+        guard !email.isEmpty else {
+            showError(message: "Email cannot be empty")
+            return false
+        }
+        guard !password.isEmpty else {
+            showError(message: "Password cannot be empty")
+            return false
+        }
+        return true
     }
     
     private func signUp() async throws -> AppUser {
@@ -44,11 +58,21 @@ class AuthViewViewModel {
     private func handleAuthResult(_ user: AppUser) {
         showError = false
         errorMessage = ""
+        // Handle successful authentication (e.g., navigate to main view)
     }
     
     @MainActor
     private func handleAuthError(_ error: Error) {
         showError = true
-        errorMessage = error.localizedDescription
+        if let authError = error as? AuthError {
+            errorMessage = authError.localizedDescription
+        } else {
+            errorMessage = "An unexpected error occurred. Please try again."
+        }
+    }
+    
+    private func showError(message: String) {
+        showError = true
+        errorMessage = message
     }
 }
