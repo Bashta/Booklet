@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomersView: View {
     
     // MARK: - State
-    
+    @State private var viewModel = CustomersViewViewModel()
     @State private var customers: [Customer] = []
     @State private var selectedCustomer: Customer?
     @State private var isAddingNewCustomer = false
@@ -23,16 +23,19 @@ struct CustomersView: View {
     
     var body: some View {
         content
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                newCustomerButton
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    newCustomerButton
+                }
             }
-        }
-        .overlay {
-            if shouldShowEmptyStateView {
-                contentUnavailableView
+            .overlay {
+                if viewModel.customers.isEmpty && !viewModel.isAddingNewCustomer {
+                    contentUnavailableView
+                }
             }
-        }
+            .task {
+                await viewModel.fetchCustomers()
+            }
     }
 }
 
@@ -43,21 +46,29 @@ private extension CustomersView {
         Group {
             HSplitView {
                 // List of customers
-                List(customers, selection: $selectedCustomer) { customer in
+                List(viewModel.customers, selection: $viewModel.selectedCustomer) { customer in
                     Text("\(customer.firstName) \(customer.lastName)")
                 }
                 .frame(minWidth: 200)
                 
                 // Customer form or placeholder
-                if let customer = selectedCustomer {
-                    CustomerForm(customer: binding(for: customer))
-                } else if isAddingNewCustomer {
-                    CustomerForm(customer: binding(for: Customer(firstName: "", lastName: "")))
+                if let customer = viewModel.selectedCustomer {
+                    CustomerForm(customer: binding(for: customer), onSave: { updatedCustomer in
+                        Task {
+                            await viewModel.addOrUpdateCustomer(updatedCustomer)
+                        }
+                    })
+                } else if viewModel.isAddingNewCustomer {
+                    CustomerForm(customer: binding(for: Customer(firstName: "", lastName: "")), onSave: { newCustomer in
+                        Task {
+                            await viewModel.addOrUpdateCustomer(newCustomer)
+                        }
+                    })
                 } else {
                     VStack {
-                        Text("Select a customer or add a new one")
+                        Text("customers.selectOrAdd")
                             .font(.headline)
-                        Button("Add New Customer") {
+                        Button("customers.addNew") {
                             addCustomer()
                         }
                         .padding()
@@ -65,11 +76,9 @@ private extension CustomersView {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color(NSColor.windowBackgroundColor))
                 }
-                
             }
         }
     }
-    
     var newCustomerButton: some View {
         Button(action: addCustomer) {
             Label("Add Customer", systemImage: "plus")
@@ -103,21 +112,17 @@ private extension CustomersView {
 
 private extension CustomersView {
     func addCustomer() {
-        isAddingNewCustomer = true
-        selectedCustomer = nil
+        viewModel.isAddingNewCustomer = true
+        viewModel.selectedCustomer = nil
     }
     
     func binding(for customer: Customer) -> Binding<Customer> {
         Binding(
             get: { customer },
             set: { newValue in
-                if let index = customers.firstIndex(where: { $0.id == customer.id }) {
-                    customers[index] = newValue
-                } else {
-                    customers.append(newValue)
+                if viewModel.customers.contains(where: { $0.id == customer.id }) {
+                    viewModel.selectedCustomer = newValue
                 }
-                isAddingNewCustomer = false
-                selectedCustomer = newValue
             }
         )
     }

@@ -14,9 +14,6 @@
     "Add Customer" : {
 
     },
-    "Add New Customer" : {
-
-    },
     "Arrivals" : {
       "comment" : "Tab title"
     },
@@ -216,28 +213,34 @@
     "Customers" : {
       "comment" : "Tab title"
     },
-    "Email" : {
+    "customers.addNew" : {
 
     },
-    "First Name" : {
+    "customers.email" : {
+
+    },
+    "customers.firstName" : {
+
+    },
+    "customers.lastName" : {
+
+    },
+    "customers.phoneNumber" : {
+
+    },
+    "customers.save" : {
+
+    },
+    "customers.selectOrAdd" : {
 
     },
     "Home" : {
       "comment" : "Tab title"
     },
-    "Last Name" : {
-
-    },
     "No customers yet" : {
 
     },
-    "Phone Number" : {
-
-    },
     "Room: %lld" : {
-
-    },
-    "Select a customer or add a new one" : {
 
     },
     "Selected %@ Menu item" : {

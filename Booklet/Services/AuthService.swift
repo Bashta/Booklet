@@ -14,6 +14,7 @@ protocol AuthServiceProtocol {
     func getCurrentUser() -> AppUser?
     func addStateDidChangeListener(_ listener: @escaping (AppUser?) -> Void) -> Any
     func removeStateDidChangeListener(_ listenerHandle: Any)
+    func getCurrentUserId() -> String?
 }
 
 class AuthService: AuthServiceProtocol {
@@ -56,6 +57,10 @@ class AuthService: AuthServiceProtocol {
         if let handle = listenerHandle as? AuthStateDidChangeListenerHandle {
             auth.removeStateDidChangeListener(handle)
         }
+    }
+    
+    func getCurrentUserId() -> String? {
+        return Auth.auth().currentUser?.uid
     }
 }
 

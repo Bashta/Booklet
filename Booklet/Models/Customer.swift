@@ -6,13 +6,10 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 struct Customer: Identifiable, Codable, Hashable {
-    static func == (lhs: Customer, rhs: Customer) -> Bool {
-        lhs.id == rhs.id
-    }
-    
-    let id: UUID
+    @DocumentID var id: String?
     var firstName: String
     var lastName: String
     var email: String?
@@ -21,27 +18,11 @@ struct Customer: Identifiable, Codable, Hashable {
     var dateOfBirth: Date?
     var nationality: String?
     var passportNumber: String?
-    
-    init(
-        id: UUID = UUID(),
-        firstName: String,
-        lastName: String,
-        email: String? = nil,
-        phoneNumber: String? = nil,
-        address: Address? = nil,
-        dateOfBirth: Date? = nil,
-        nationality: String? = nil,
-        passportNumber: String? = nil
-    ) {
-        self.id = id
-        self.firstName = firstName
-        self.lastName = lastName
-        self.email = email
-        self.phoneNumber = phoneNumber
-        self.address = address
-        self.dateOfBirth = dateOfBirth
-        self.nationality = nationality
-        self.passportNumber = passportNumber
+}
+
+extension Customer {
+    static func == (lhs: Customer, rhs: Customer) -> Bool {
+        lhs.id == rhs.id
     }
 }
 

@@ -30,6 +30,11 @@
 		42BF3D7F2C44601300E61833 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D7E2C44601300E61833 /* AuthError.swift */; };
 		42BF3D812C44739000E61833 /* PasswordStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D802C44739000E61833 /* PasswordStrengthView.swift */; };
 		42BF3D832C4476EC00E61833 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 42BF3D822C4476EC00E61833 /* Localizable.xcstrings */; };
+		42BF3D892C44A1A900E61833 /* CustomerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D882C44A1A900E61833 /* CustomerService.swift */; };
+		42BF3D942C44A34A00E61833 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 42BF3D932C44A34A00E61833 /* FirebaseFirestore */; };
+		42BF3D962C44A34A00E61833 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 42BF3D952C44A34A00E61833 /* FirebaseFirestoreSwift */; };
+		42BF3D9A2C44A34A00E61833 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 42BF3D992C44A34A00E61833 /* FirebaseRemoteConfigSwift */; };
+		42BF3D9F2C4544AC00E61833 /* CustomersViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D9E2C4544AC00E61833 /* CustomersViewViewModel.swift */; };
 		42C14FC52C3DCC1D007C18E3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C14FC42C3DCC1D007C18E3 /* MainView.swift */; };
 		42D22E782C3DE15700E1CF6C /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D22E772C3DE15700E1CF6C /* Tabs.swift */; };
 		42D22E7A2C3DE8A000E1CF6C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D22E792C3DE8A000E1CF6C /* Constants.swift */; };
@@ -77,6 +82,9 @@
 		42BF3D7E2C44601300E61833 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		42BF3D802C44739000E61833 /* PasswordStrengthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStrengthView.swift; sourceTree = "<group>"; };
 		42BF3D822C4476EC00E61833 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		42BF3D882C44A1A900E61833 /* CustomerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerService.swift; sourceTree = "<group>"; };
+		42BF3D8A2C44A23F00E61833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42BF3D9E2C4544AC00E61833 /* CustomersViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersViewViewModel.swift; sourceTree = "<group>"; };
 		42C14FC42C3DCC1D007C18E3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		42D22E772C3DE15700E1CF6C /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		42D22E792C3DE8A000E1CF6C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -90,7 +98,10 @@
 			files = (
 				42B05DB02C3F4C300022D676 /* GoogleSignInSwift in Frameworks */,
 				42ACA4482C3EF22D009BA7D2 /* FirebaseAuth in Frameworks */,
+				42BF3D9A2C44A34A00E61833 /* FirebaseRemoteConfigSwift in Frameworks */,
+				42BF3D942C44A34A00E61833 /* FirebaseFirestore in Frameworks */,
 				42B05DAE2C3F4C300022D676 /* GoogleSignIn in Frameworks */,
+				42BF3D962C44A34A00E61833 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +148,7 @@
 		424E7D2A2C370F63001EAD2E /* Booklet */ = {
 			isa = PBXGroup;
 			children = (
+				42BF3D8A2C44A23F00E61833 /* Info.plist */,
 				427B64D62C42F1C6008AA0BA /* Core */,
 				427B64D32C42DF23008AA0BA /* Services */,
 				427B64BB2C41F43F008AA0BA /* App */,
@@ -177,9 +189,27 @@
 			path = BookletUITests;
 			sourceTree = "<group>";
 		};
+		4275C3AE2C455AB00076892A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */,
+				42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4275C3AF2C455ABC0076892A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				42BF3D9E2C4544AC00E61833 /* CustomersViewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		427B64AF2C409EA0008AA0BA /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				42BF3D9D2C45449300E61833 /* Customers */,
 				427B64B02C409EA8008AA0BA /* Auth */,
 			);
 			path = Features;
@@ -225,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				427B64D02C42DCA4008AA0BA /* AuthService.swift */,
+				42BF3D882C44A1A900E61833 /* CustomerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -268,8 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				424E7D562C3713CE001EAD2E /* CalendarView.swift */,
-				42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */,
-				42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +342,15 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		42BF3D9D2C45449300E61833 /* Customers */ = {
+			isa = PBXGroup;
+			children = (
+				4275C3AF2C455ABC0076892A /* ViewModel */,
+				4275C3AE2C455AB00076892A /* View */,
+			);
+			path = Customers;
+			sourceTree = "<group>";
+		};
 		42E19B7D2C3F519B00F70B1F /* ci_scripts */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +379,9 @@
 				42ACA4472C3EF22D009BA7D2 /* FirebaseAuth */,
 				42B05DAD2C3F4C300022D676 /* GoogleSignIn */,
 				42B05DAF2C3F4C300022D676 /* GoogleSignInSwift */,
+				42BF3D932C44A34A00E61833 /* FirebaseFirestore */,
+				42BF3D952C44A34A00E61833 /* FirebaseFirestoreSwift */,
+				42BF3D992C44A34A00E61833 /* FirebaseRemoteConfigSwift */,
 			);
 			productName = Booklet;
 			productReference = 424E7D282C370F63001EAD2E /* Booklet.app */;
@@ -470,10 +511,12 @@
 				424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */,
 				42C14FC52C3DCC1D007C18E3 /* MainView.swift in Sources */,
 				427B64D12C42DCA4008AA0BA /* AuthService.swift in Sources */,
+				42BF3D9F2C4544AC00E61833 /* CustomersViewViewModel.swift in Sources */,
 				42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */,
 				424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */,
 				42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */,
 				42BF3D7F2C44601300E61833 /* AuthError.swift in Sources */,
+				42BF3D892C44A1A900E61833 /* CustomerService.swift in Sources */,
 				42ACA44A2C3EF5F3009BA7D2 /* CustomersView.swift in Sources */,
 				427B64B92C40A6EC008AA0BA /* AuthViewViewModel.swift in Sources */,
 				42D22E782C3DE15700E1CF6C /* Tabs.swift in Sources */,
@@ -649,6 +692,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Booklet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Booklet;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -678,6 +722,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Booklet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Booklet;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -836,6 +881,18 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 42B05DAC2C3F4C300022D676 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		42BF3D932C44A34A00E61833 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseFirestore;
+		};
+		42BF3D952C44A34A00E61833 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseFirestoreSwift;
+		};
+		42BF3D992C44A34A00E61833 /* FirebaseRemoteConfigSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseRemoteConfigSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
