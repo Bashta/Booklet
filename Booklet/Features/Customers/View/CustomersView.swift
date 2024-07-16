@@ -10,26 +10,18 @@ import SwiftUI
 struct CustomersView: View {
     
     // MARK: - State
+    
     @State private var viewModel = CustomersViewViewModel()
-    @State private var customers: [Customer] = []
-    @State private var selectedCustomer: Customer?
-    @State private var isAddingNewCustomer = false
-    
-    // MARK: - Computed
-    
-    private var shouldShowEmptyStateView: Bool {
-        customers.isEmpty && !isAddingNewCustomer
-    }
     
     var body: some View {
         content
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    newCustomerButton
+                    newCustomerToolbarButton
                 }
             }
             .overlay {
-                if viewModel.customers.isEmpty && !viewModel.isAddingNewCustomer {
+                if shouldShowContentUnavailableOverlay {
                     contentUnavailableView
                 }
             }
@@ -39,53 +31,45 @@ struct CustomersView: View {
     }
 }
 
+// MARK: - Helpers
+
+private extension CustomersView {
+    var shouldShowContentUnavailableOverlay: Bool {
+        viewModel.customers.isEmpty && !viewModel.isAddingNewCustomer
+    }
+}
+
 // MARK: - Views
 
 private extension CustomersView {
     var content: some View {
         Group {
             HSplitView {
-                // List of customers
-                List(viewModel.customers, selection: $viewModel.selectedCustomer) { customer in
+                List(viewModel.customers, id: \.uuid, selection: $viewModel.selectedCustomer) { customer in
                     Text("\(customer.firstName) \(customer.lastName)")
                 }
-                .frame(minWidth: 200)
+                .frame(minWidth: 200, maxWidth: .infinity, maxHeight: .infinity)
                 
-                // Customer form or placeholder
-                if let customer = viewModel.selectedCustomer {
-                    CustomerForm(customer: binding(for: customer), onSave: { updatedCustomer in
-                        Task {
-                            await viewModel.addOrUpdateCustomer(updatedCustomer)
-                        }
-                    })
-                } else if viewModel.isAddingNewCustomer {
-                    CustomerForm(customer: binding(for: Customer(firstName: "", lastName: "")), onSave: { newCustomer in
-                        Task {
-                            await viewModel.addOrUpdateCustomer(newCustomer)
-                        }
-                    })
-                } else {
-                    VStack {
-                        Text("customers.selectOrAdd")
-                            .font(.headline)
-                        Button("customers.addNew") {
-                            addCustomer()
-                        }
-                        .padding()
-                    }
+                if viewModel.isAddingNewCustomer {
+                    CustomerForm(
+                        customer: Binding(
+                            $viewModel.selectedCustomer,
+                            replacingNilWith: Customer.init(firstName: "", lastName: "")
+                        )
+                    )
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color(NSColor.windowBackgroundColor))
                 }
             }
         }
     }
-    var newCustomerButton: some View {
-        Button(action: addCustomer) {
+
+    var newCustomerToolbarButton: some View {
+        Button(action: viewModel.addNewCustomer) {
             Label("Add Customer", systemImage: "plus")
                 .foregroundStyle(Color.accentColor)
         }
     }
-    
+
     var contentUnavailableView: some View {
         ZStack {
             Color(.black)
@@ -95,7 +79,7 @@ private extension CustomersView {
                 Text("Start by adding your first customer. Click the button below to get started.")
             } actions: {
                 Button {
-                    addCustomer()
+                    viewModel.addNewCustomer()
                 } label: {
                     Image(systemName: "person.fill.badge.plus")
                         .padding(8)
@@ -105,26 +89,6 @@ private extension CustomersView {
                 }
             }
         }
-    }
-}
-
-// MARK: - Helpers
-
-private extension CustomersView {
-    func addCustomer() {
-        viewModel.isAddingNewCustomer = true
-        viewModel.selectedCustomer = nil
-    }
-    
-    func binding(for customer: Customer) -> Binding<Customer> {
-        Binding(
-            get: { customer },
-            set: { newValue in
-                if viewModel.customers.contains(where: { $0.id == customer.id }) {
-                    viewModel.selectedCustomer = newValue
-                }
-            }
-        )
     }
 }
 

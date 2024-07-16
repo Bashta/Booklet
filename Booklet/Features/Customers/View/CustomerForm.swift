@@ -8,26 +8,19 @@
 import SwiftUI
 
 struct CustomerForm: View {
+    
     @Binding var customer: Customer
-    var onSave: (Customer) async -> Void
     
     var body: some View {
         Form {
             TextField("customers.firstName", text: $customer.firstName)
             TextField("customers.lastName", text: $customer.lastName)
-            TextField("customers.email", text: Binding(
-                get: { customer.email ?? "" },
-                set: { customer.email = $0.isEmpty ? nil : $0 }
-            ))
-            TextField("customers.phoneNumber", text: Binding(
-                get: { customer.phoneNumber ?? "" },
-                set: { customer.phoneNumber = $0.isEmpty ? nil : $0 }
-            ))
-            
+            TextField("customers.email", text: Binding($customer.email, replacingNilWith: ""))
+            TextField("customers.phoneNumber", text: Binding($customer.phoneNumber, replacingNilWith: ""))
+            // FIXME: - When TextField gets focused the customer binding get recreated twice.
+            let _ = print(customer)
             Button("customers.save") {
-                Task {
-                    await onSave(customer)
-                }
+               print("Save button pressed")
             }
         }
         .padding()
@@ -36,8 +29,5 @@ struct CustomerForm: View {
 }
 
 #Preview {
-    CustomerForm(
-        customer: .constant(.init(firstName: "Jqualin", lastName: "Aaronvich")),
-        onSave: { _ in
-        })
+    CustomerForm(customer: .constant(.init(firstName: "Name", lastName: "Surname")))
 }

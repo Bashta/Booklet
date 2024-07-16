@@ -213,9 +213,6 @@
     "Customers" : {
       "comment" : "Tab title"
     },
-    "customers.addNew" : {
-
-    },
     "customers.email" : {
 
     },
@@ -229,9 +226,6 @@
 
     },
     "customers.save" : {
-
-    },
-    "customers.selectOrAdd" : {
 
     },
     "Home" : {

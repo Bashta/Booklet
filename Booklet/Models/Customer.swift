@@ -10,6 +10,7 @@ import FirebaseFirestoreSwift
 
 struct Customer: Identifiable, Codable, Hashable {
     @DocumentID var id: String?
+    let uuid: UUID = .init()
     var firstName: String
     var lastName: String
     var email: String?

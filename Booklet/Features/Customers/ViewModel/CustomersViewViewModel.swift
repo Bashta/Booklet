@@ -9,6 +9,7 @@ import Foundation
 
 @Observable
 class CustomersViewViewModel {
+
     private let customerService: CustomerServiceProtocol
     
     var customers: [Customer] = []
@@ -42,5 +43,10 @@ class CustomersViewViewModel {
             errorMessage = error.localizedDescription
         }
         isLoading = false
+    }
+    
+    func addNewCustomer() {
+        isAddingNewCustomer = true
+        selectedCustomer = Customer(firstName: "Name", lastName: "Surname")
     }
 }
