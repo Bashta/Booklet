@@ -14,6 +14,7 @@ class CustomersViewViewModel {
     
     var customers: [Customer] = []
     var selectedCustomer: Customer?
+    var newCustomer: Customer = .init(firstName: "Name", lastName: "Surname")
     var isAddingNewCustomer = false
     var isLoading = false
     var errorMessage: String?

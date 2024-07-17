@@ -213,16 +213,10 @@
     "Customers" : {
       "comment" : "Tab title"
     },
-    "customers.email" : {
-
-    },
     "customers.firstName" : {
 
     },
     "customers.lastName" : {
-
-    },
-    "customers.phoneNumber" : {
 
     },
     "customers.save" : {

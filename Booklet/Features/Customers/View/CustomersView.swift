@@ -53,12 +53,7 @@ private extension CustomersView {
                 .frame(minWidth: 200, maxWidth: .infinity, maxHeight: .infinity)
                 
                 if customersViewModel.isAddingNewCustomer {
-                    CustomerForm(
-                        customer: Binding(
-                            $customersViewModel.selectedCustomer,
-                            replacingNilWith: Customer.init(firstName: "", lastName: "")
-                        )
-                    )
+                    CustomerForm()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
