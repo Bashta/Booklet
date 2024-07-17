@@ -9,9 +9,19 @@ import SwiftUI
 
 struct AuthView: View {
     
-    @Bindable private var viewModel = AuthViewViewModel()
+    // MARK: - ViewModel
+    
+    @Environment(\.serviceLocator.authViewModel) private var authViewModel
+
+    // MARK: -
+    
+    private var shouldDisableAuthButton: Bool {
+        authViewModel.email.isEmpty || authViewModel.password.isEmpty
+    }
     
     var body: some View {
+        @Bindable var authViewModel = authViewModel
+
         VStack(spacing: 20) {
             Image(systemName: "building.2.crop.circle")
                 .resizable()
@@ -23,52 +33,52 @@ struct AuthView: View {
                 .font(.title)
                 .fontWeight(.bold)
             
-            TextField("auth.email", text: $viewModel.email)
+            TextField("auth.email", text: $authViewModel.email)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.emailAddress)
                 .disableAutocorrection(true)
             
-            SecureField("auth.password", text: $viewModel.password)
+            SecureField("auth.password", text: $authViewModel.password)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.password)
             
-            if viewModel.isSignUp {
-                PasswordStrengthView(password: viewModel.password)
+            if authViewModel.isSignUp {
+                PasswordStrengthView(password: authViewModel.password)
             }
 
-            if viewModel.showError {
-                Text(viewModel.errorMessage)
+            if authViewModel.showError {
+                Text(authViewModel.errorMessage)
                     .foregroundColor(.red)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
             }
             
             AuthButton(
-                title: viewModel.isSignUp ? "auth.signUp" : "auth.signIn",
-                isLoading: viewModel.isLoading
+                title: authViewModel.isSignUp ? "auth.signUp" : "auth.signIn",
+                isLoading: authViewModel.isLoading
             ) {
-                Task { await viewModel.performAuth() }
+                Task { await authViewModel.performAuth() }
             }
-            .disabled(viewModel.email.isEmpty || viewModel.password.isEmpty)
+            .disabled(shouldDisableAuthButton)
             
-            Button(action: { viewModel.isSignUp.toggle() }) {
-                Text(viewModel.isSignUp ? "auth.haveAccount" : "auth.noAccount")
+            Button(action: { authViewModel.isSignUp.toggle() }) {
+                Text(authViewModel.isSignUp ? "auth.haveAccount" : "auth.noAccount")
             }
             .buttonStyle(.plain)
             
-            if viewModel.showError {
-                Text(viewModel.errorMessage)
+            if authViewModel.showError {
+                Text(authViewModel.errorMessage)
                     .foregroundColor(.red)
             }
         }
         .padding()
         .frame(width: 300)
-        .alert("auth.errorTitle", isPresented: $viewModel.showError) {
+        .alert("auth.errorTitle", isPresented: $authViewModel.showError) {
             Button("common.ok") {
-                viewModel.showError = false
+                authViewModel.showError = false
             }
         } message: {
-            Text(viewModel.errorMessage)
+            Text(authViewModel.errorMessage)
         }
     }
 }

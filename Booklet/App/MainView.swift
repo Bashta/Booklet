@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct MainView: View {
+    
     // MARK: - VM
     
-    @Bindable private var viewModel = MainViewViewModel()
+    @Environment(\.serviceLocator.mainViewModel) private var mainViewModel
 
     // MARK: - Content
     
     var body: some View {
         Group {
-            if viewModel.isAuthenticated {
+            if mainViewModel.isAuthenticated {
                 content
                     .tabViewStyle(.sidebarAdaptable)
                     .toolbar { logOutToolbarItem }
@@ -32,7 +33,8 @@ struct MainView: View {
 
 private extension MainView {
     var content: some View {
-        TabView(selection: $viewModel.selectedTab) {
+        @Bindable var mainViewModel = mainViewModel
+        return TabView(selection: $mainViewModel.selectedTab) {
             ForEach(Tabs.allCases) { tab in
                 Tab(tab.name, systemImage: tab.symbol, value: tab) {
                     contentForSelectedTab
@@ -43,10 +45,10 @@ private extension MainView {
     }
     
     var contentForSelectedTab: some View {
-        switch viewModel.selectedTab {
+        switch mainViewModel.selectedTab {
         case .calendar: AnyView(CalendarView())
         case .customers: AnyView(CustomersView())
-        default: AnyView(Text("Selected \(viewModel.selectedTab.name) Menu item"))
+        default: AnyView(Text("Selected \(mainViewModel.selectedTab.name) Menu item"))
         }
     }
     
@@ -54,8 +56,8 @@ private extension MainView {
         ToolbarItem(placement: .automatic) {
             AuthButton(title: "Log Out",
                        systemImage: "rectangle.portrait.and.arrow.right",
-                       isLoading: viewModel.isLoading) {
-                Task { await viewModel.signOut() }
+                       isLoading: mainViewModel.isLoading) {
+                Task { await mainViewModel.signOut() }
             }
         }
     }

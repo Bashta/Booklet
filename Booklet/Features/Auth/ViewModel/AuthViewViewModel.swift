@@ -18,6 +18,7 @@ class AuthViewViewModel {
     var isLoading = false
     
     init(authService: AuthServiceProtocol = AuthService()) {
+        print("Viewmodel init: AuthViewViewModel")
         self.authService = authService
     }
     

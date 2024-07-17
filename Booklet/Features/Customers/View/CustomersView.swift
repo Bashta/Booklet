@@ -9,10 +9,10 @@ import SwiftUI
 
 struct CustomersView: View {
     
-    // MARK: - State
+    // MARK: - ViewModel
     
-    @State private var viewModel = CustomersViewViewModel()
-    
+    @Environment(\.serviceLocator.customersViewModel) private var customersViewModel
+
     var body: some View {
         content
             .toolbar {
@@ -26,7 +26,7 @@ struct CustomersView: View {
                 }
             }
             .task {
-                await viewModel.fetchCustomers()
+                await customersViewModel.fetchCustomers()
             }
     }
 }
@@ -35,7 +35,7 @@ struct CustomersView: View {
 
 private extension CustomersView {
     var shouldShowContentUnavailableOverlay: Bool {
-        viewModel.customers.isEmpty && !viewModel.isAddingNewCustomer
+        customersViewModel.customers.isEmpty && !customersViewModel.isAddingNewCustomer
     }
 }
 
@@ -43,17 +43,19 @@ private extension CustomersView {
 
 private extension CustomersView {
     var content: some View {
-        Group {
+        @Bindable var customersViewModel = customersViewModel
+        
+        return Group {
             HSplitView {
-                List(viewModel.customers, id: \.uuid, selection: $viewModel.selectedCustomer) { customer in
+                List(customersViewModel.customers, id: \.uuid, selection: $customersViewModel.selectedCustomer) { customer in
                     Text("\(customer.firstName) \(customer.lastName)")
                 }
                 .frame(minWidth: 200, maxWidth: .infinity, maxHeight: .infinity)
                 
-                if viewModel.isAddingNewCustomer {
+                if customersViewModel.isAddingNewCustomer {
                     CustomerForm(
                         customer: Binding(
-                            $viewModel.selectedCustomer,
+                            $customersViewModel.selectedCustomer,
                             replacingNilWith: Customer.init(firstName: "", lastName: "")
                         )
                     )
@@ -64,7 +66,7 @@ private extension CustomersView {
     }
 
     var newCustomerToolbarButton: some View {
-        Button(action: viewModel.addNewCustomer) {
+        Button(action: customersViewModel.addNewCustomer) {
             Label("Add Customer", systemImage: "plus")
                 .foregroundStyle(Color.accentColor)
         }
@@ -79,7 +81,7 @@ private extension CustomersView {
                 Text("Start by adding your first customer. Click the button below to get started.")
             } actions: {
                 Button {
-                    viewModel.addNewCustomer()
+                    customersViewModel.addNewCustomer()
                 } label: {
                     Image(systemName: "person.fill.badge.plus")
                         .padding(8)

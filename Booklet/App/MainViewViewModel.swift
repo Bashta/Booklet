@@ -16,6 +16,7 @@ class MainViewViewModel {
     private var authStateHandler: Any?
     
     init(authService: AuthServiceProtocol = AuthService()) {
+        print("Viewmodel init: MainViewViewModel")
         self.authService = authService
         setupAuthStateListener()
     }

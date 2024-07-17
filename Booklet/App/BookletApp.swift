@@ -20,10 +20,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 @main
 struct BookletApp: App {
+   
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
+    private let serviceLocator: ServiceLocator
+    
     init() {
-        setupDepedecies()
+        print("BookletApp init")
+        FirebaseApp.configure()
+        self.serviceLocator = .init()
     }
     
     var body: some Scene {
@@ -32,6 +37,7 @@ struct BookletApp: App {
                 .frame(minWidth: Constants.contentWindowWidth, maxWidth: .infinity, minHeight: Constants.contentWindowHeight, maxHeight: .infinity)
         }
         .windowResizability(.contentSize)
+        .environment(serviceLocator)
     }
 }
 

@@ -19,6 +19,7 @@ class CustomersViewViewModel {
     var errorMessage: String?
     
     init(customerService: CustomerServiceProtocol = CustomerService()) {
+        print("Viewmodel init: CustomersViewViewModel")
         self.customerService = customerService
     }
     
