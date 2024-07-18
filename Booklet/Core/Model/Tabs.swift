@@ -27,11 +27,11 @@ enum Tabs: Equatable, Hashable, Identifiable, CaseIterable {
     
     var name: String {
         switch self {
-        case .home: String(localized: "Home", comment: "Tab title")
-        case .calendar: String(localized: "Calendar", comment: "Tab title")
-        case .stats: String(localized: "Stats", comment: "Tab title")
-        case .arrival: String(localized: "Arrivals", comment: "Tab title")
-        case .customers: String(localized: "Customers", comment: "Tab title")
+        case .home: String(localized: "tab.home", comment: "Tab title")
+        case .calendar: String(localized: "tab.calendar", comment: "Tab title")
+        case .stats: String(localized: "tab.stats", comment: "Tab title")
+        case .arrival: String(localized: "tab.arrivals", comment: "Tab title")
+        case .customers: String(localized: "tab.customers", comment: "Tab title")
         }
     }
     

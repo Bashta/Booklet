@@ -64,7 +64,7 @@ private extension CustomersView {
 
     var newCustomerToolbarButton: some View {
         Button(action: customersViewModel.addNewCustomer) {
-            Label("Add Customer", systemImage: "plus")
+            Label("customers.addCustomer.button", systemImage: "plus")
                 .foregroundStyle(Color.accentColor)
         }
     }
@@ -73,9 +73,9 @@ private extension CustomersView {
         ZStack {
             Color(.black)
             ContentUnavailableView {
-                Label("No customers yet", systemImage: "person.3")
+                Label("customers.noCustomers", systemImage: "person.3")
             } description: {
-                Text("Start by adding your first customer. Click the button below to get started.")
+                Text("customers.noCustomers.description")
             } actions: {
                 Button {
                     customersViewModel.addNewCustomer()
