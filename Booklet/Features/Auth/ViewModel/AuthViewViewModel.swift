@@ -9,7 +9,11 @@ import Foundation
 
 @Observable
 class AuthViewViewModel {
+    
+    // MARK: - Properties
+    
     private let authService: AuthServiceProtocol
+    
     var email = ""
     var password = ""
     var isSignUp = false
@@ -17,10 +21,13 @@ class AuthViewViewModel {
     var errorMessage = ""
     var isLoading = false
     
+    // MARK: - Lifecycle
+    
     init(authService: AuthServiceProtocol = AuthService()) {
-        print("Viewmodel init: AuthViewViewModel")
         self.authService = authService
     }
+    
+    // MARK: - Public Interface
     
     func performAuth() async {
         guard isValidInput() else { return }
@@ -34,8 +41,12 @@ class AuthViewViewModel {
         }
         isLoading = false
     }
-    
-    private func isValidInput() -> Bool {
+}
+
+// MARK: - Helpers
+
+private extension AuthViewViewModel {
+    func isValidInput() -> Bool {
         guard !email.isEmpty else {
             showError(message: String(localized: "auth.error.emptyEmail"))
             return false
@@ -47,23 +58,23 @@ class AuthViewViewModel {
         return true
     }
     
-    private func signUp() async throws -> AppUser {
+    func signUp() async throws -> AppUser {
         return try await authService.signUp(email: email, password: password)
     }
     
-    private func signIn() async throws -> AppUser {
+    func signIn() async throws -> AppUser {
         return try await authService.signIn(email: email, password: password)
     }
     
     @MainActor
-    private func handleAuthResult(_ user: AppUser) {
+    func handleAuthResult(_ user: AppUser) {
         showError = false
         errorMessage = ""
         // Handle successful authentication (e.g., navigate to main view)
     }
     
     @MainActor
-    private func handleAuthError(_ error: Error) {
+    func handleAuthError(_ error: Error) {
         showError = true
         if let authError = error as? AuthError {
             errorMessage = authError.localizedDescription
@@ -72,7 +83,7 @@ class AuthViewViewModel {
         }
     }
     
-    private func showError(message: String) {
+    func showError(message: String) {
         showError = true
         errorMessage = message
     }

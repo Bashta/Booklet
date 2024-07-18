@@ -13,6 +13,8 @@ struct CustomerForm: View {
     
     @Environment(\.serviceLocator.customersViewModel) private var customersViewModel
     
+    // MARK: - View
+    
     var body: some View {
         content
         .padding()
@@ -29,6 +31,7 @@ private extension CustomerForm {
             TextField("customers.firstName", text: $customersViewModel.newCustomer.firstName)
             TextField("customers.lastName", text: $customersViewModel.newCustomer.lastName)
             TextField("customers.nationality", text: Binding($customersViewModel.newCustomer.nationality, replacingNilWith: ""))
+            
             Divider()
             
             Button("customers.save") {

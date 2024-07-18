@@ -13,6 +13,8 @@ struct CustomersView: View {
     
     @Environment(\.serviceLocator.customersViewModel) private var customersViewModel
 
+    // MARK: - View
+    
     var body: some View {
         content
             .toolbar {
@@ -39,7 +41,7 @@ private extension CustomersView {
     }
 }
 
-// MARK: - Views
+// MARK: - Content
 
 private extension CustomersView {
     var content: some View {

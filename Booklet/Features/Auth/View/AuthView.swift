@@ -13,16 +13,26 @@ struct AuthView: View {
     
     @Environment(\.serviceLocator.authViewModel) private var authViewModel
 
-    // MARK: -
+    // MARK: - Computed properties
     
     private var shouldDisableAuthButton: Bool {
         authViewModel.email.isEmpty || authViewModel.password.isEmpty
     }
     
     var body: some View {
-        @Bindable var authViewModel = authViewModel
+        content
+        .padding()
+        .frame(width: 300)
+    }
+}
 
-        VStack(spacing: 20) {
+// MARK: - Content
+
+private extension AuthView {
+    var content: some View {
+        @Bindable var authViewModel = authViewModel
+        
+        return VStack(spacing: 20) {
             Image(systemName: "building.2.crop.circle")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -71,8 +81,6 @@ struct AuthView: View {
                     .foregroundColor(.red)
             }
         }
-        .padding()
-        .frame(width: 300)
         .alert("auth.errorTitle", isPresented: $authViewModel.showError) {
             Button("common.ok") {
                 authViewModel.showError = false

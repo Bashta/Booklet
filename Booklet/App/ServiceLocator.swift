@@ -10,10 +10,15 @@ import SwiftUI
 
 @Observable
 class ServiceLocator {
+    
+    // MARK: - Dependecies
+    
     let mainViewModel: MainViewViewModel
     let customersViewModel: CustomersViewViewModel
     let authViewModel: AuthViewViewModel
     
+    // MARK: - Lifecycle
+
     init() {
         self.mainViewModel = MainViewViewModel()
         self.customersViewModel = CustomersViewViewModel()

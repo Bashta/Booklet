@@ -9,11 +9,17 @@ import Foundation
 
 @Observable
 class MainViewViewModel {
+    
+    // MARK: - Properties
+    
     private let authService: AuthServiceProtocol
+    
     var selectedTab: Tabs = .home
     var isAuthenticated = false
     var isLoading = false
     private var authStateHandler: Any?
+    
+    // MARK: - Lifecycle
     
     init(authService: AuthServiceProtocol = AuthService()) {
         print("Viewmodel init: MainViewViewModel")
@@ -24,7 +30,25 @@ class MainViewViewModel {
     deinit {
         removeAuthStateListener()
     }
-    
+
+    // MARK: - Public interface
+
+    @MainActor
+        func signOut() async {
+            isLoading = true
+            do {
+                try await authService.signOut()
+                isAuthenticated = false
+            } catch {
+                print("Error signing out: \(error.localizedDescription)")
+            }
+            isLoading = false
+        }
+}
+
+// MARK: - Helpers
+
+private extension MainViewViewModel {
     private func setupAuthStateListener() {
         authStateHandler = authService.addStateDidChangeListener { user in
             Task { @MainActor in
@@ -38,16 +62,4 @@ class MainViewViewModel {
             authService.removeStateDidChangeListener(handler)
         }
     }
-    
-    @MainActor
-        func signOut() async {
-            isLoading = true
-            do {
-                try await authService.signOut()
-                isAuthenticated = false
-            } catch {
-                print("Error signing out: \(error.localizedDescription)")
-            }
-            isLoading = false
-        }
 }

@@ -26,7 +26,6 @@ struct BookletApp: App {
     private let serviceLocator: ServiceLocator
     
     init() {
-        print("BookletApp init")
         FirebaseApp.configure()
         self.serviceLocator = .init()
     }

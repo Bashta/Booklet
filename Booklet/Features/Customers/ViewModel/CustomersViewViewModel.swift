@@ -9,7 +9,9 @@ import Foundation
 
 @Observable
 class CustomersViewViewModel {
-
+    
+    // MARK: - Properties
+    
     private let customerService: CustomerServiceProtocol
     
     var customers: [Customer] = []
@@ -19,11 +21,16 @@ class CustomersViewViewModel {
     var isLoading = false
     var errorMessage: String?
     
+    // MARK: - Lifecycle
+    
     init(customerService: CustomerServiceProtocol = CustomerService()) {
-        print("Viewmodel init: CustomersViewViewModel")
         self.customerService = customerService
     }
-    
+}
+
+// MARK: - Public interface
+
+extension CustomersViewViewModel {
     func fetchCustomers() async {
         isLoading = true
         do {
