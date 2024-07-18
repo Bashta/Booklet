@@ -31,11 +31,7 @@ class CustomerService: CustomerServiceProtocol {
             throw NSError(domain: "CustomerService", code: 1, userInfo: [NSLocalizedDescriptionKey: "User not authenticated"])
         }
         
-        guard let id = customer.id else {
-            throw NSError(domain: "CustomerService", code: 1, userInfo: [NSLocalizedDescriptionKey: "Custemr is missing ID field"])
-        }
-        
-        let documentReference = collection.document(id)
+        let documentReference = collection.document(customer.uuid.uuidString)
         try documentReference.setData(from: customer)
     }
     

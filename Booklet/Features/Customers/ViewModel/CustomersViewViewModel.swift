@@ -40,7 +40,6 @@ class CustomersViewViewModel {
             try await customerService.createCustomer(customer)
             await fetchCustomers()
             isAddingNewCustomer = false
-            selectedCustomer = customer
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -49,6 +48,6 @@ class CustomersViewViewModel {
     
     func addNewCustomer() {
         isAddingNewCustomer = true
-        selectedCustomer = Customer(firstName: "Name", lastName: "Surname")
+        newCustomer = Customer(firstName: "Name", lastName: "Surname")
     }
 }

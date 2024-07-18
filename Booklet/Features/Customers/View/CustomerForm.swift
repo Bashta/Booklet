@@ -9,14 +9,18 @@ import SwiftUI
 
 struct CustomerForm: View {
     
+    // MARK: - ViewModel
+    
     @Environment(\.serviceLocator.customersViewModel) private var customersViewModel
-
+    
     var body: some View {
         content
         .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(minWidth: 300, maxWidth: .infinity, maxHeight: .infinity)
     }
 }
+
+// MARK: - Content
 
 private extension CustomerForm {
     var content: some View {
@@ -24,9 +28,18 @@ private extension CustomerForm {
         return Form {
             TextField("customers.firstName", text: $customersViewModel.newCustomer.firstName)
             TextField("customers.lastName", text: $customersViewModel.newCustomer.lastName)
+            TextField("customers.nationality", text: Binding($customersViewModel.newCustomer.nationality, replacingNilWith: ""))
+            Divider()
+            
             Button("customers.save") {
-                print("Save button pressed")
+                Task {
+                    await customersViewModel.addOrUpdateCustomer(customersViewModel.newCustomer)
+                }
             }
+            .frame(maxWidth: .infinity)
+            .buttonStyle(.borderedProminent)
+            .padding(12)
+            .disabled(customersViewModel.isLoading)
         }
     }
 }

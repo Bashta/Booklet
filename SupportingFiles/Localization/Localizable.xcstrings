@@ -219,8 +219,18 @@
     "customers.lastName" : {
 
     },
-    "customers.save" : {
+    "customers.nationality" : {
 
+    },
+    "customers.save" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        }
+      }
     },
     "Home" : {
       "comment" : "Tab title"
