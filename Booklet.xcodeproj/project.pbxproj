@@ -79,6 +79,7 @@
 		427B64D02C42DCA4008AA0BA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		427B64D42C42EC21008AA0BA /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		427B64D92C42FE3B008AA0BA /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		42A33ADB2C4937B400504009 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		42ACA4412C3EEE61009BA7D2 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerForm.swift; sourceTree = "<group>"; };
 		42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersView.swift; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		424E7D1F2C370F62001EAD2E = {
 			isa = PBXGroup;
 			children = (
+				42A33ADB2C4937B400504009 /* README.md */,
 				42BF3D842C44780100E61833 /* SupportingFiles */,
 				42E19B7D2C3F519B00F70B1F /* ci_scripts */,
 				424E7D2A2C370F63001EAD2E /* Booklet */,
