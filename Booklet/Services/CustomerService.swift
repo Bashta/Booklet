@@ -8,39 +8,66 @@
 import Foundation
 import FirebaseFirestore
 
+// MARK: - Interface
+
 protocol CustomerServiceProtocol {
     func createCustomer(_ customer: Customer) async throws
     func getCustomers() async throws -> [Customer]
 }
 
 class CustomerService: CustomerServiceProtocol {
+
+    // MARK: - Properties
+    
     private let db = Firestore.firestore()
     private let authService: AuthServiceProtocol
+    
+    // MARK: - Lifecycle
     
     init(authService: AuthServiceProtocol = AuthService()) {
         self.authService = authService
     }
     
-    private var userCustomersCollection: CollectionReference? {
-        guard let userId = authService.getCurrentUser()?.id else { return nil }
-        return db.collection("users").document(userId).collection("customers")
-    }
+    // MARK: - Public interface
     
     func createCustomer(_ customer: Customer) async throws {
         guard let collection = userCustomersCollection else {
-            throw NSError(domain: "CustomerService", code: 1, userInfo: [NSLocalizedDescriptionKey: "User not authenticated"])
+            throw CustomerError.userNotAuthenticated
         }
         
-        let documentReference = collection.document(customer.uuid.uuidString)
-        try documentReference.setData(from: customer)
+        do {
+            let documentReference = collection.document(customer.uuid.uuidString)
+            try documentReference.setData(from: customer)
+        } catch {
+            throw CustomerError.failedToCreateCustomer
+        }
     }
     
     func getCustomers() async throws -> [Customer] {
         guard let collection = userCustomersCollection else {
-            throw NSError(domain: "CustomerService", code: 1, userInfo: [NSLocalizedDescriptionKey: "User not authenticated"])
+            throw CustomerError.userNotAuthenticated
         }
         
-        let snapshot = try await collection.getDocuments()
-        return try snapshot.documents.compactMap { try $0.data(as: Customer.self) }
+        do {
+            let snapshot = try await collection.getDocuments()
+            return try snapshot.decode(as: Customer.self)
+        } catch {
+            throw CustomerError.failedToFetchCustomers
+        }
+    }
+}
+
+// MARK: - Helpers
+
+private extension CustomerService {
+    /// Provides access to the Firestore collection of customers for the currently authenticated user.
+    ///
+    /// This computed property returns a `CollectionReference` for the user's customers if a user is
+    /// authenticated, or `nil` if no user is currently logged in.
+    ///
+    /// - Returns: A `CollectionReference` pointing to the user's customers collection if authenticated, otherwise `nil`.
+    private var userCustomersCollection: CollectionReference? {
+        guard let userId = authService.getCurrentUser()?.id else { return nil }
+        return .customersCollection(for: userId)
     }
 }

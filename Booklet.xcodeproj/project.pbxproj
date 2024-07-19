@@ -25,6 +25,9 @@
 		42A33AF12C4AF76700504009 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33AF02C4AF76700504009 /* LoadingView.swift */; };
 		42A33AF42C4AF81D00504009 /* LoadingViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33AF32C4AF81D00504009 /* LoadingViewModifier.swift */; };
 		42A33AF72C4AF99400504009 /* MinimumLoadingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33AF62C4AF99400504009 /* MinimumLoadingTime.swift */; };
+		42A33AFA2C4B083500504009 /* CustomerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33AF92C4B083500504009 /* CustomerError.swift */; };
+		42A33AFE2C4B107700504009 /* FirestoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33AFD2C4B107700504009 /* FirestoreExtensions.swift */; };
+		42A33B012C4B1B8700504009 /* FirestoreCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33B002C4B1B8700504009 /* FirestoreCollection.swift */; };
 		42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACA4412C3EEE61009BA7D2 /* Customer.swift */; };
 		42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */; };
 		42ACA4482C3EF22D009BA7D2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 42ACA4472C3EF22D009BA7D2 /* FirebaseAuth */; };
@@ -86,6 +89,9 @@
 		42A33AF02C4AF76700504009 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		42A33AF32C4AF81D00504009 /* LoadingViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModifier.swift; sourceTree = "<group>"; };
 		42A33AF62C4AF99400504009 /* MinimumLoadingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimumLoadingTime.swift; sourceTree = "<group>"; };
+		42A33AF92C4B083500504009 /* CustomerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerError.swift; sourceTree = "<group>"; };
+		42A33AFD2C4B107700504009 /* FirestoreExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreExtensions.swift; sourceTree = "<group>"; };
+		42A33B002C4B1B8700504009 /* FirestoreCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCollection.swift; sourceTree = "<group>"; };
 		42ACA4412C3EEE61009BA7D2 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerForm.swift; sourceTree = "<group>"; };
 		42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersView.swift; sourceTree = "<group>"; };
@@ -223,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				4275C3E82C46EBB50076892A /* Binding+NilCoalescing.swift */,
+				42A33AFD2C4B107700504009 /* FirestoreExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,9 +326,27 @@
 			path = LoadingView;
 			sourceTree = "<group>";
 		};
+		42A33AF82C4B082B00504009 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				42A33AF92C4B083500504009 /* CustomerError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		42A33AFF2C4B1B6700504009 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+				42A33B002C4B1B8700504009 /* FirestoreCollection.swift */,
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
 		42ACA4402C3EEE4E009BA7D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				42A33AFF2C4B1B6700504009 /* Firestore */,
+				42A33AF82C4B082B00504009 /* Error */,
 				42ACA4412C3EEE61009BA7D2 /* Customer.swift */,
 				427B64D42C42EC21008AA0BA /* AppUser.swift */,
 			);
@@ -542,6 +567,7 @@
 				427B64DA2C42FE3B008AA0BA /* AuthButton.swift in Sources */,
 				42BF3D812C44739000E61833 /* PasswordStrengthView.swift in Sources */,
 				427B64D52C42EC21008AA0BA /* AppUser.swift in Sources */,
+				42A33B012C4B1B8700504009 /* FirestoreCollection.swift in Sources */,
 				42A33AF12C4AF76700504009 /* LoadingView.swift in Sources */,
 				424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */,
 				42C14FC52C3DCC1D007C18E3 /* MainView.swift in Sources */,
@@ -551,10 +577,12 @@
 				42A33AF72C4AF99400504009 /* MinimumLoadingTime.swift in Sources */,
 				42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */,
 				424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */,
+				42A33AFE2C4B107700504009 /* FirestoreExtensions.swift in Sources */,
 				42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */,
 				4275C3FB2C484ACD0076892A /* ServiceLocator.swift in Sources */,
 				42BF3D7F2C44601300E61833 /* AuthError.swift in Sources */,
 				42BF3D892C44A1A900E61833 /* CustomerService.swift in Sources */,
+				42A33AFA2C4B083500504009 /* CustomerError.swift in Sources */,
 				42ACA44A2C3EF5F3009BA7D2 /* CustomersView.swift in Sources */,
 				427B64B92C40A6EC008AA0BA /* AuthViewViewModel.swift in Sources */,
 				42D22E782C3DE15700E1CF6C /* Tabs.swift in Sources */,

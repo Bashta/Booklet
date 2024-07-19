@@ -257,6 +257,72 @@
         }
       }
     },
+    "customer.error.failedToCreateCustomer" : {
+      "comment" : "Failed to create customer",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to create customer"
+          }
+        }
+      }
+    },
+    "customer.error.failedToFetchCustomers" : {
+      "comment" : "Failed to fetch customers",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to fetch customers"
+          }
+        }
+      }
+    },
+    "customer.error.invalidCustomerData" : {
+      "comment" : "Invalid customer data",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid customer data"
+          }
+        }
+      }
+    },
+    "customer.error.networkError" : {
+      "comment" : "Network error occurred",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network error occurred"
+          }
+        }
+      }
+    },
+    "customer.error.unknownError" : {
+      "comment" : "An unknown error occurred: %@",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error occurred: %@"
+          }
+        }
+      }
+    },
+    "customer.error.userNotAuthenticated" : {
+      "comment" : "User is not authenticated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User is not authenticated"
+          }
+        }
+      }
+    },
     "customers.addCustomer.button" : {
       "localizations" : {
         "en" : {
