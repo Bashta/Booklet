@@ -22,6 +22,9 @@
 		427B64D12C42DCA4008AA0BA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64D02C42DCA4008AA0BA /* AuthService.swift */; };
 		427B64D52C42EC21008AA0BA /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64D42C42EC21008AA0BA /* AppUser.swift */; };
 		427B64DA2C42FE3B008AA0BA /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64D92C42FE3B008AA0BA /* AuthButton.swift */; };
+		42A33AF12C4AF76700504009 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33AF02C4AF76700504009 /* LoadingView.swift */; };
+		42A33AF42C4AF81D00504009 /* LoadingViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33AF32C4AF81D00504009 /* LoadingViewModifier.swift */; };
+		42A33AF72C4AF99400504009 /* MinimumLoadingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33AF62C4AF99400504009 /* MinimumLoadingTime.swift */; };
 		42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACA4412C3EEE61009BA7D2 /* Customer.swift */; };
 		42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */; };
 		42ACA4482C3EF22D009BA7D2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 42ACA4472C3EF22D009BA7D2 /* FirebaseAuth */; };
@@ -80,6 +83,9 @@
 		427B64D42C42EC21008AA0BA /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		427B64D92C42FE3B008AA0BA /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		42A33ADB2C4937B400504009 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		42A33AF02C4AF76700504009 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		42A33AF32C4AF81D00504009 /* LoadingViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModifier.swift; sourceTree = "<group>"; };
+		42A33AF62C4AF99400504009 /* MinimumLoadingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimumLoadingTime.swift; sourceTree = "<group>"; };
 		42ACA4412C3EEE61009BA7D2 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerForm.swift; sourceTree = "<group>"; };
 		42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersView.swift; sourceTree = "<group>"; };
@@ -279,6 +285,7 @@
 		427B64D62C42F1C6008AA0BA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				42A33AF52C4AF97D00504009 /* LoadingView */,
 				427B64D82C42F1DB008AA0BA /* Model */,
 				427B64D72C42F1CE008AA0BA /* View */,
 			);
@@ -300,6 +307,16 @@
 				42D22E772C3DE15700E1CF6C /* Tabs.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		42A33AF52C4AF97D00504009 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				42A33AF02C4AF76700504009 /* LoadingView.swift */,
+				42A33AF32C4AF81D00504009 /* LoadingViewModifier.swift */,
+				42A33AF62C4AF99400504009 /* MinimumLoadingTime.swift */,
+			);
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		42ACA4402C3EEE4E009BA7D2 /* Models */ = {
@@ -525,10 +542,13 @@
 				427B64DA2C42FE3B008AA0BA /* AuthButton.swift in Sources */,
 				42BF3D812C44739000E61833 /* PasswordStrengthView.swift in Sources */,
 				427B64D52C42EC21008AA0BA /* AppUser.swift in Sources */,
+				42A33AF12C4AF76700504009 /* LoadingView.swift in Sources */,
 				424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */,
 				42C14FC52C3DCC1D007C18E3 /* MainView.swift in Sources */,
+				42A33AF42C4AF81D00504009 /* LoadingViewModifier.swift in Sources */,
 				427B64D12C42DCA4008AA0BA /* AuthService.swift in Sources */,
 				42BF3D9F2C4544AC00E61833 /* CustomersViewViewModel.swift in Sources */,
+				42A33AF72C4AF99400504009 /* MinimumLoadingTime.swift in Sources */,
 				42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */,
 				424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */,
 				42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */,

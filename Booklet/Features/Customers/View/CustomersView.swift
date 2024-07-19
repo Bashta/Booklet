@@ -30,6 +30,11 @@ struct CustomersView: View {
             .task {
                 await customersViewModel.fetchCustomers()
             }
+            .loading(
+                isLoading: customersViewModel.isLoading,
+                title: "customers.loading.title",
+                description: "customers.loading.description"
+            )
     }
 }
 
