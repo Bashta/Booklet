@@ -32,6 +32,7 @@
 		42A33B052C4B20E300504009 /* BookingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33B042C4B20E300504009 /* BookingService.swift */; };
 		42A33B0B2C4B233A00504009 /* BookingViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33B0A2C4B233A00504009 /* BookingViewViewModel.swift */; };
 		42A33B0D2C4B239500504009 /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33B0C2C4B239500504009 /* BookingView.swift */; };
+		42A33B0F2C4C5DF500504009 /* BookingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A33B0E2C4C5DF500504009 /* BookingError.swift */; };
 		42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACA4412C3EEE61009BA7D2 /* Customer.swift */; };
 		42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */; };
 		42ACA4482C3EF22D009BA7D2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 42ACA4472C3EF22D009BA7D2 /* FirebaseAuth */; };
@@ -100,6 +101,7 @@
 		42A33B042C4B20E300504009 /* BookingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingService.swift; sourceTree = "<group>"; };
 		42A33B0A2C4B233A00504009 /* BookingViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewViewModel.swift; sourceTree = "<group>"; };
 		42A33B0C2C4B239500504009 /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
+		42A33B0E2C4C5DF500504009 /* BookingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingError.swift; sourceTree = "<group>"; };
 		42ACA4412C3EEE61009BA7D2 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerForm.swift; sourceTree = "<group>"; };
 		42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersView.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				42A33AF92C4B083500504009 /* CustomerError.swift */,
+				42A33B0E2C4C5DF500504009 /* BookingError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				42A33AFE2C4B107700504009 /* FirestoreExtensions.swift in Sources */,
 				42A33B052C4B20E300504009 /* BookingService.swift in Sources */,
 				42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */,
+				42A33B0F2C4C5DF500504009 /* BookingError.swift in Sources */,
 				4275C3FB2C484ACD0076892A /* ServiceLocator.swift in Sources */,
 				42BF3D7F2C44601300E61833 /* AuthError.swift in Sources */,
 				42BF3D892C44A1A900E61833 /* CustomerService.swift in Sources */,

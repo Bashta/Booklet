@@ -246,6 +246,24 @@
         }
       }
     },
+    "booking.error.failedToCreateBooking" : {
+      "comment" : "Failed to create booking"
+    },
+    "booking.error.failedToDeleteBooking" : {
+      "comment" : "Failed to delete booking"
+    },
+    "booking.error.failedToFetchBookings" : {
+      "comment" : "Failed to fetch bookings"
+    },
+    "booking.error.failedToUpdateBooking" : {
+      "comment" : "Failed to update booking"
+    },
+    "booking.error.invalidBookingData" : {
+      "comment" : "Invalid booking data"
+    },
+    "booking.error.userNotAuthenticated" : {
+      "comment" : "User is not authenticated"
+    },
     "Check-in: %@" : {
 
     },
