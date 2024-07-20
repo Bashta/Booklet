@@ -22,7 +22,6 @@ class MainViewViewModel {
     // MARK: - Lifecycle
     
     init(authService: AuthServiceProtocol = AuthService()) {
-        print("Viewmodel init: MainViewViewModel")
         self.authService = authService
         setupAuthStateListener()
     }

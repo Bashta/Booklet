@@ -9,11 +9,12 @@ import Foundation
 
 enum FirestoreCollection: String {
     case users = "users"
-    
+
     enum Users: String {
         case customers = "customers"
+        case bookings = "bookings"
     }
-}
+}       
 
 enum FirestoreDocument: String {
     case user = "user"

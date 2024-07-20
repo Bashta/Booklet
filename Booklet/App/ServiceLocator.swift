@@ -16,13 +16,15 @@ class ServiceLocator {
     let mainViewModel: MainViewViewModel
     let customersViewModel: CustomersViewViewModel
     let authViewModel: AuthViewViewModel
-    
+    let bookingViewModel: BookingViewViewModel
+
     // MARK: - Lifecycle
 
     init() {
         self.mainViewModel = MainViewViewModel()
         self.customersViewModel = CustomersViewViewModel()
         self.authViewModel = AuthViewViewModel()
+        self.bookingViewModel = BookingViewViewModel()
     }
 }
 

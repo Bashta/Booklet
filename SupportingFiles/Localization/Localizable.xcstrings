@@ -246,6 +246,12 @@
         }
       }
     },
+    "Check-in: %@" : {
+
+    },
+    "Check-out: %@" : {
+
+    },
     "common.ok" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -393,10 +399,16 @@
         }
       }
     },
+    "Room: %@" : {
+
+    },
     "Room: %lld" : {
 
     },
     "Selected %@ Menu item" : {
+
+    },
+    "Status: %@" : {
 
     },
     "tab.arrivals" : {
