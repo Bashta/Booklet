@@ -33,4 +33,19 @@ class BookingViewViewModel {
         }
         isLoading = false
     }
+    
+    func createRandomBookings() async {
+        isLoading = true
+        let randomBookings = Booking.createRandomBookings(count: 10)
+        
+        do {
+            for booking in randomBookings {
+                try await bookingService.createBooking(booking)
+            }
+            await fetchBookings()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+        isLoading = false
+    }
 }

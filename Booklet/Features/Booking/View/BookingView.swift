@@ -8,11 +8,34 @@
 import SwiftUI
 
 struct BookingView: View {
+    
+    // MARK: - VM
+    
     @Environment(\.serviceLocator.bookingViewModel) private var bookingViewModel
     
+    // MARK: - View
+    
     var body: some View {
-        List(bookingViewModel.bookings) { booking in
-            BookingRow(booking: booking)
+        VStack {
+            List(bookingViewModel.bookings) { booking in
+                BookingRow(booking: booking)
+            }
+            
+            Button("booking.createRandom") {
+                Task {
+                    await bookingViewModel.createRandomBookings()
+                }
+            }
+            .padding()
+            .disabled(bookingViewModel.isLoading)
+        }
+        .overlay {
+            if bookingViewModel.isLoading {
+                ProgressView()
+            }
+        }
+        .alert(isPresented: .init(get: { bookingViewModel.errorMessage != nil }, set: { _ in bookingViewModel.errorMessage = nil })) {
+            Alert(title: Text("booking.error"), message: Text(bookingViewModel.errorMessage ?? ""))
         }
         .task {
             await bookingViewModel.fetchBookings()

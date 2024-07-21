@@ -246,6 +246,12 @@
         }
       }
     },
+    "booking.createRandom" : {
+
+    },
+    "booking.error" : {
+
+    },
     "booking.error.failedToCreateBooking" : {
       "comment" : "Failed to create booking"
     },
