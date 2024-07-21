@@ -24,10 +24,6 @@ class BookingService: BookingServiceProtocol {
     private let db = Firestore.firestore()
     private let authService: AuthServiceProtocol
     
-    private var collectionPath: String {
-        FirestoreCollection.Users.bookings.rawValue
-    }
-    
     // MARK: - Lifecycle
     
     init(authService: AuthServiceProtocol = AuthService()) {
@@ -40,14 +36,14 @@ class BookingService: BookingServiceProtocol {
 extension BookingService {
     
     func createBooking(_ booking: Booking) async throws {
-            guard let userId = authService.getCurrentUserId() else {
+            guard let collection = hotelBookingsCollection else {
                 throw BookingError.userNotAuthenticated
             }
             
             do {
-                let bookingReference = db.collection(collectionPath).document()
+                let bookingReference = collection.document()
                 var bookingData = try Firestore.Encoder().encode(booking)
-                bookingData["userId"] = userId
+                bookingData["hotelId"] = authService.getCurrentUserId()
                 try await bookingReference.setData(bookingData)
             } catch {
                 throw BookingError.failedToCreateBooking
@@ -55,15 +51,12 @@ extension BookingService {
         }
         
         func getBookings() async throws -> [Booking] {
-            guard let userId = authService.getCurrentUserId() else {
+            guard let collection = hotelBookingsCollection else {
                 throw BookingError.userNotAuthenticated
             }
             
             do {
-                let snapshot = try await db.collection(collectionPath)
-                    .whereField("userId", isEqualTo: userId)
-                    .getDocuments()
-                
+                let snapshot = try await collection.getDocuments()
                 return try snapshot.documents.compactMap { document in
                     try document.data(as: Booking.self)
                 }
@@ -73,12 +66,12 @@ extension BookingService {
         }
         
         func updateBooking(_ booking: Booking) async throws {
-            guard let bookingId = booking.id else {
+            guard let bookingId = booking.id, let collection = hotelBookingsCollection else {
                 throw BookingError.invalidBookingData
             }
             
             do {
-                let bookingReference = db.collection(collectionPath).document(bookingId)
+                let bookingReference = collection.document(bookingId)
                 try bookingReference.setData(from: booking, merge: true)
             } catch {
                 throw BookingError.failedToUpdateBooking
@@ -86,10 +79,31 @@ extension BookingService {
         }
         
         func deleteBooking(_ bookingId: String) async throws {
+            guard let collection = hotelBookingsCollection else {
+                throw BookingError.userNotAuthenticated
+            }
+            
             do {
-                try await db.collection(collectionPath).document(bookingId).delete()
+                try await collection.document(bookingId).delete()
             } catch {
                 throw BookingError.failedToDeleteBooking
             }
         }
+}
+
+// MARK: - Helpers
+
+private extension BookingService {
+    /// Provides access to the Firestore collection of bookings for the currently authenticated hotel.
+    ///
+    /// This computed property returns a `CollectionReference` for the hotel's bookings if a user is
+    /// authenticated, or `nil` if no user is currently logged in.
+    ///
+    /// - Returns: A `CollectionReference` pointing to the hotel's bookings collection if authenticated, otherwise `nil`.
+    var hotelBookingsCollection: CollectionReference? {
+        guard let hotelId = authService.getCurrentUserId() else { return nil }
+        return db.collection(FirestoreCollection.hotels.rawValue)
+            .document(hotelId)
+            .collection(FirestoreCollection.Hotel.bookings.rawValue)
+    }
 }

@@ -31,7 +31,7 @@ class CustomerService: CustomerServiceProtocol {
     // MARK: - Public interface
     
     func createCustomer(_ customer: Customer) async throws {
-        guard let collection = userCustomersCollection else {
+        guard let collection = hotelCustomersCollection else {
             throw CustomerError.userNotAuthenticated
         }
         
@@ -44,7 +44,7 @@ class CustomerService: CustomerServiceProtocol {
     }
     
     func getCustomers() async throws -> [Customer] {
-        guard let collection = userCustomersCollection else {
+        guard let collection = hotelCustomersCollection else {
             throw CustomerError.userNotAuthenticated
         }
         
@@ -66,8 +66,10 @@ private extension CustomerService {
     /// authenticated, or `nil` if no user is currently logged in.
     ///
     /// - Returns: A `CollectionReference` pointing to the user's customers collection if authenticated, otherwise `nil`.
-    private var userCustomersCollection: CollectionReference? {
-        guard let userId = authService.getCurrentUser()?.id else { return nil }
-        return .customersCollection(for: userId)
+    private var hotelCustomersCollection: CollectionReference? {
+        guard let hotelId = authService.getCurrentUserId() else { return nil }
+        return db.collection(FirestoreCollection.hotels.rawValue)
+            .document(hotelId)
+            .collection(FirestoreCollection.Hotel.customers.rawValue)
     }
 }
