@@ -19,7 +19,10 @@ struct CustomersView: View {
         content
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    newCustomerToolbarButton
+                    AddEntityButton(
+                        title: "customers.addCustomer.button",
+                        action: customersViewModel.addNewCustomer
+                    )
                 }
             }
             .overlay {
@@ -64,14 +67,6 @@ private extension CustomersView {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
-        }
-    }
-    
-    // TODO: - Refactor this since it can be used in multiple places
-    var newCustomerToolbarButton: some View {
-        Button(action: customersViewModel.addNewCustomer) {
-            Label("customers.addCustomer.button", systemImage: "plus")
-                .foregroundStyle(Color.accentColor)
         }
     }
 

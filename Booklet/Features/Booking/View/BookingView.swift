@@ -38,9 +38,10 @@ struct BookingView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button("booking.addNew") {
-                        isShowingNewBookingView = true
-                    }
+                    AddEntityButton(
+                        title: "booking.addNew",
+                        action: { isShowingNewBookingView = true }
+                    )
                 }
             }
             .sheet(isPresented: $isShowingNewBookingView) {

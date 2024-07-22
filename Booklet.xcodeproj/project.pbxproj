@@ -10,6 +10,7 @@
 		4207BAA72C4E97D9007C1CAE /* BookingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4207BAA62C4E97D9007C1CAE /* BookingCardView.swift */; };
 		4207BAA92C4E995D007C1CAE /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4207BAA82C4E995D007C1CAE /* StatusBadge.swift */; };
 		4207BAAB2C4EAB71007C1CAE /* NewBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4207BAAA2C4EAB71007C1CAE /* NewBookingView.swift */; };
+		4207BAAF2C4EB846007C1CAE /* AddEntityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4207BAAE2C4EB846007C1CAE /* AddEntityButton.swift */; };
 		424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E7D2B2C370F63001EAD2E /* BookletApp.swift */; };
 		424E7D302C370F64001EAD2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424E7D2F2C370F64001EAD2E /* Assets.xcassets */; };
 		424E7D332C370F64001EAD2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424E7D322C370F64001EAD2E /* Preview Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		4207BAA62C4E97D9007C1CAE /* BookingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingCardView.swift; sourceTree = "<group>"; };
 		4207BAA82C4E995D007C1CAE /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
 		4207BAAA2C4EAB71007C1CAE /* NewBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookingView.swift; sourceTree = "<group>"; };
+		4207BAAE2C4EB846007C1CAE /* AddEntityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntityButton.swift; sourceTree = "<group>"; };
 		424E7D282C370F63001EAD2E /* Booklet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424E7D2B2C370F63001EAD2E /* BookletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookletApp.swift; sourceTree = "<group>"; };
 		424E7D2F2C370F64001EAD2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 			children = (
 				427B64D92C42FE3B008AA0BA /* AuthButton.swift */,
 				42BF3D802C44739000E61833 /* PasswordStrengthView.swift */,
+				4207BAAE2C4EB846007C1CAE /* AddEntityButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				42A33AFA2C4B083500504009 /* CustomerError.swift in Sources */,
 				42A33B0D2C4B239500504009 /* BookingView.swift in Sources */,
 				42ACA44A2C3EF5F3009BA7D2 /* CustomersView.swift in Sources */,
+				4207BAAF2C4EB846007C1CAE /* AddEntityButton.swift in Sources */,
 				427B64B92C40A6EC008AA0BA /* AuthViewViewModel.swift in Sources */,
 				4207BAA92C4E995D007C1CAE /* StatusBadge.swift in Sources */,
 				42D22E782C3DE15700E1CF6C /* Tabs.swift in Sources */,
