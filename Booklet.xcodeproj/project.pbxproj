@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4207BAA72C4E97D9007C1CAE /* BookingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4207BAA62C4E97D9007C1CAE /* BookingCardView.swift */; };
+		4207BAA92C4E995D007C1CAE /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4207BAA82C4E995D007C1CAE /* StatusBadge.swift */; };
 		424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E7D2B2C370F63001EAD2E /* BookletApp.swift */; };
 		424E7D302C370F64001EAD2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424E7D2F2C370F64001EAD2E /* Assets.xcassets */; };
 		424E7D332C370F64001EAD2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424E7D322C370F64001EAD2E /* Preview Assets.xcassets */; };
@@ -71,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4207BAA62C4E97D9007C1CAE /* BookingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingCardView.swift; sourceTree = "<group>"; };
+		4207BAA82C4E995D007C1CAE /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
 		424E7D282C370F63001EAD2E /* Booklet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424E7D2B2C370F63001EAD2E /* BookletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookletApp.swift; sourceTree = "<group>"; };
 		424E7D2F2C370F64001EAD2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -366,6 +370,8 @@
 			isa = PBXGroup;
 			children = (
 				42A33B0C2C4B239500504009 /* BookingView.swift */,
+				4207BAA62C4E97D9007C1CAE /* BookingCardView.swift */,
+				4207BAA82C4E995D007C1CAE /* StatusBadge.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -623,6 +629,7 @@
 				42A33B032C4B209500504009 /* Booking.swift in Sources */,
 				427B64D12C42DCA4008AA0BA /* AuthService.swift in Sources */,
 				42BF3D9F2C4544AC00E61833 /* CustomersViewViewModel.swift in Sources */,
+				4207BAA72C4E97D9007C1CAE /* BookingCardView.swift in Sources */,
 				42A33AF72C4AF99400504009 /* MinimumLoadingTime.swift in Sources */,
 				42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */,
 				424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */,
@@ -637,6 +644,7 @@
 				42A33B0D2C4B239500504009 /* BookingView.swift in Sources */,
 				42ACA44A2C3EF5F3009BA7D2 /* CustomersView.swift in Sources */,
 				427B64B92C40A6EC008AA0BA /* AuthViewViewModel.swift in Sources */,
+				4207BAA92C4E995D007C1CAE /* StatusBadge.swift in Sources */,
 				42D22E782C3DE15700E1CF6C /* Tabs.swift in Sources */,
 				427B64B62C40A05A008AA0BA /* MainViewViewModel.swift in Sources */,
 				427B64B32C409EC9008AA0BA /* AuthView.swift in Sources */,

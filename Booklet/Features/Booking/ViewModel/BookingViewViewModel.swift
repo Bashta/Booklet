@@ -23,7 +23,11 @@ class BookingViewViewModel {
     init(bookingService: BookingServiceProtocol = BookingService()) {
         self.bookingService = bookingService
     }
-    
+}
+
+// MARK: - Backend Calls
+
+extension BookingViewViewModel {
     func fetchBookings() async {
         isLoading = true
         do {
@@ -33,11 +37,15 @@ class BookingViewViewModel {
         }
         isLoading = false
     }
-    
-    func createRandomBookings() async {
+}
+
+// MARK: - Helpers
+
+extension BookingViewViewModel {
+    // TODO: - Remove this once creating
+    func createRandomBookings(count: UInt = 10) async {
         isLoading = true
         let randomBookings = Booking.createRandomBookings(count: 10)
-        
         do {
             for booking in randomBookings {
                 try await bookingService.createBooking(booking)

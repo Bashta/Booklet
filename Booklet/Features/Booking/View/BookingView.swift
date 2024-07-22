@@ -9,25 +9,20 @@ import SwiftUI
 
 struct BookingView: View {
     
-    // MARK: - VM
+    // MARK: - ViewModel
     
     @Environment(\.serviceLocator.bookingViewModel) private var bookingViewModel
     
     // MARK: - View
     
     var body: some View {
-        VStack {
-            List(bookingViewModel.bookings) { booking in
-                BookingRow(booking: booking)
-            }
-            
-            Button("booking.createRandom") {
-                Task {
-                    await bookingViewModel.createRandomBookings()
+        ScrollView {
+            LazyVStack(spacing: 16) {
+                ForEach(bookingViewModel.bookings) { booking in
+                    BookingCardView(booking: booking)
                 }
             }
             .padding()
-            .disabled(bookingViewModel.isLoading)
         }
         .overlay {
             if bookingViewModel.isLoading {
@@ -40,18 +35,15 @@ struct BookingView: View {
         .task {
             await bookingViewModel.fetchBookings()
         }
-    }
-}
-
-struct BookingRow: View {
-    let booking: Booking
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text("Room: \(booking.roomId)")
-            Text("Check-in: \(booking.checkInDate, style: .date)")
-            Text("Check-out: \(booking.checkOutDate, style: .date)")
-            Text("Status: \(booking.status.rawValue)")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button("booking.createRandom") {
+                    Task {
+                        await bookingViewModel.createRandomBookings()
+                    }
+                }
+                .disabled(bookingViewModel.isLoading)
+            }
         }
     }
 }

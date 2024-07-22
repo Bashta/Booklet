@@ -246,6 +246,21 @@
         }
       }
     },
+    "booking.card.checkIn" : {
+
+    },
+    "booking.card.checkOut" : {
+
+    },
+    "booking.card.guestCount %lld" : {
+
+    },
+    "booking.card.roomNumber %@" : {
+
+    },
+    "booking.card.specialRequests" : {
+
+    },
     "booking.createRandom" : {
 
     },
@@ -270,10 +285,7 @@
     "booking.error.userNotAuthenticated" : {
       "comment" : "User is not authenticated"
     },
-    "Check-in: %@" : {
-
-    },
-    "Check-out: %@" : {
+    "booking.status.%@" : {
 
     },
     "common.ok" : {
@@ -423,16 +435,10 @@
         }
       }
     },
-    "Room: %@" : {
-
-    },
     "Room: %lld" : {
 
     },
     "Selected %@ Menu item" : {
-
-    },
-    "Status: %@" : {
 
     },
     "tab.arrivals" : {
