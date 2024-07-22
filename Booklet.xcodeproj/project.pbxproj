@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4207BAA72C4E97D9007C1CAE /* BookingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4207BAA62C4E97D9007C1CAE /* BookingCardView.swift */; };
 		4207BAA92C4E995D007C1CAE /* StatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4207BAA82C4E995D007C1CAE /* StatusBadge.swift */; };
+		4207BAAB2C4EAB71007C1CAE /* NewBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4207BAAA2C4EAB71007C1CAE /* NewBookingView.swift */; };
 		424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E7D2B2C370F63001EAD2E /* BookletApp.swift */; };
 		424E7D302C370F64001EAD2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424E7D2F2C370F64001EAD2E /* Assets.xcassets */; };
 		424E7D332C370F64001EAD2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424E7D322C370F64001EAD2E /* Preview Assets.xcassets */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		4207BAA62C4E97D9007C1CAE /* BookingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingCardView.swift; sourceTree = "<group>"; };
 		4207BAA82C4E995D007C1CAE /* StatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBadge.swift; sourceTree = "<group>"; };
+		4207BAAA2C4EAB71007C1CAE /* NewBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBookingView.swift; sourceTree = "<group>"; };
 		424E7D282C370F63001EAD2E /* Booklet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Booklet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424E7D2B2C370F63001EAD2E /* BookletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookletApp.swift; sourceTree = "<group>"; };
 		424E7D2F2C370F64001EAD2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				42A33B0C2C4B239500504009 /* BookingView.swift */,
 				4207BAA62C4E97D9007C1CAE /* BookingCardView.swift */,
 				4207BAA82C4E995D007C1CAE /* StatusBadge.swift */,
+				4207BAAA2C4EAB71007C1CAE /* NewBookingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */,
 				424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */,
 				42A33AFE2C4B107700504009 /* FirestoreExtensions.swift in Sources */,
+				4207BAAB2C4EAB71007C1CAE /* NewBookingView.swift in Sources */,
 				42A33B052C4B20E300504009 /* BookingService.swift in Sources */,
 				42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */,
 				42A33B0F2C4C5DF500504009 /* BookingError.swift in Sources */,

@@ -16,8 +16,9 @@ struct StatusBadge: View {
     // MARK: - View
     
     var body: some View {
-        Text("booking.status.\(status.rawValue)")
+        Text(status.rawValue.uppercased())
             .font(.caption)
+            .fontWeight(.semibold)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .background(backgroundColor)

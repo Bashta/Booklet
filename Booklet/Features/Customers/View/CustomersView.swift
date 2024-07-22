@@ -66,7 +66,8 @@ private extension CustomersView {
             }
         }
     }
-
+    
+    // TODO: - Refactor this since it can be used in multiple places
     var newCustomerToolbarButton: some View {
         Button(action: customersViewModel.addNewCustomer) {
             Label("customers.addCustomer.button", systemImage: "plus")

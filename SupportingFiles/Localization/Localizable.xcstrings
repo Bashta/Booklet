@@ -246,47 +246,281 @@
         }
       }
     },
+    "booking.addNew" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Booking"
+          }
+        }
+      }
+    },
     "booking.card.checkIn" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check-In"
+          }
+        }
+      }
     },
     "booking.card.checkOut" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check-Out"
+          }
+        }
+      }
     },
     "booking.card.guestCount %lld" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Number of guests %lld"
+          }
+        }
+      }
     },
     "booking.card.roomNumber %@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Room number: %@"
+          }
+        }
+      }
     },
     "booking.card.specialRequests" : {
-
-    },
-    "booking.createRandom" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Special requests"
+          }
+        }
+      }
     },
     "booking.error" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error:"
+          }
+        }
+      }
     },
     "booking.error.failedToCreateBooking" : {
-      "comment" : "Failed to create booking"
+      "comment" : "Failed to create booking",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to create booking"
+          }
+        }
+      }
     },
     "booking.error.failedToDeleteBooking" : {
-      "comment" : "Failed to delete booking"
+      "comment" : "Failed to delete booking",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to delete booking"
+          }
+        }
+      }
     },
     "booking.error.failedToFetchBookings" : {
-      "comment" : "Failed to fetch bookings"
+      "comment" : "Failed to fetch bookings",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to fetch bookings"
+          }
+        }
+      }
     },
     "booking.error.failedToUpdateBooking" : {
-      "comment" : "Failed to update booking"
+      "comment" : "Failed to update booking",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to update booking"
+          }
+        }
+      }
     },
     "booking.error.invalidBookingData" : {
-      "comment" : "Invalid booking data"
+      "comment" : "Invalid booking data",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid booking data"
+          }
+        }
+      }
     },
     "booking.error.userNotAuthenticated" : {
-      "comment" : "User is not authenticated"
+      "comment" : "User is not authenticated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User is not authenticated"
+          }
+        }
+      }
+    },
+    "booking.form.checkInDate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check-In date"
+          }
+        }
+      }
+    },
+    "booking.form.checkOutDate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check-Out date"
+          }
+        }
+      }
+    },
+    "booking.form.customer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Customer"
+          }
+        }
+      }
+    },
+    "booking.form.customerId" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Customer ID"
+          }
+        }
+      }
+    },
+    "booking.form.details" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details"
+          }
+        }
+      }
+    },
+    "booking.form.guestCount %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Number of guests"
+          }
+        }
+      }
+    },
+    "booking.form.payment" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Payment"
+          }
+        }
+      }
+    },
+    "booking.form.roomId" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Room ID"
+          }
+        }
+      }
+    },
+    "booking.form.specialRequests" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Special requests"
+          }
+        }
+      }
+    },
+    "booking.form.status" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status"
+          }
+        }
+      }
+    },
+    "booking.form.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Booking"
+          }
+        }
+      }
+    },
+    "booking.form.totalPrice" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total price"
+          }
+        }
+      }
     },
     "booking.status.%@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "common.cancel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
     },
     "common.ok" : {
       "extractionState" : "manual",
@@ -295,6 +529,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
+          }
+        }
+      }
+    },
+    "common.save" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
           }
         }
       }

@@ -26,8 +26,19 @@ class BookingViewViewModel {
 }
 
 // MARK: - Backend Calls
-
+@MainActor
 extension BookingViewViewModel {
+    func addBooking(_ booking: Booking) async {
+        isLoading = true
+        do {
+            try await bookingService.createBooking(booking)
+            await fetchBookings()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+        isLoading = false
+    }
+
     func fetchBookings() async {
         isLoading = true
         do {
@@ -40,9 +51,9 @@ extension BookingViewViewModel {
 }
 
 // MARK: - Helpers
-
+@MainActor
 extension BookingViewViewModel {
-    // TODO: - Remove this once creating
+    // TODO: - Remove this once creating new bookings is streamlined
     func createRandomBookings(count: UInt = 10) async {
         isLoading = true
         let randomBookings = Booking.createRandomBookings(count: 10)

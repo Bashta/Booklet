@@ -31,6 +31,8 @@ enum BookingStatus: String, Codable, CaseIterable {
     case cancelled
 }
 
+// MARK: - Helpers
+
 extension Booking {
     static func createRandomBookings(count: Int) -> [Booking] {
         let randomCustomerIds = (1...10).map { _ in UUID().uuidString }
@@ -51,5 +53,21 @@ extension Booking {
                 specialRequests: Bool.random() ? "Special request \(Int.random(in: 1...5))" : nil
             )
         }
+    }
+}
+
+// MARK: - Convenience properties
+
+extension Booking {
+    static var empty: Booking {
+        Booking(
+            customerId: "",
+            roomId: "",
+            checkInDate: Date(),
+            checkOutDate: Date().addingTimeInterval(86400),
+            numberOfGuests: 1,
+            status: .pending,
+            totalPrice: 0
+        )
     }
 }

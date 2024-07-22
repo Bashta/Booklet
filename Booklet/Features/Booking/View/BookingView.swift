@@ -13,9 +13,44 @@ struct BookingView: View {
     
     @Environment(\.serviceLocator.bookingViewModel) private var bookingViewModel
     
+    // MARK: - Properties
+
+    @State private var isShowingNewBookingView = false
+
     // MARK: - View
     
     var body: some View {
+            content
+            .loading(
+                isLoading: bookingViewModel.isLoading,
+                title: "bookings.loading.title",
+                description: "bookings.loading.title"
+            )
+            .alert(
+                isPresented: .init(
+                    get: { bookingViewModel.errorMessage != nil },
+                    set: { _ in bookingViewModel.errorMessage = nil })
+            ) {
+                Alert(title: Text("booking.error"), message: Text(bookingViewModel.errorMessage ?? ""))
+            }
+            .task {
+                await bookingViewModel.fetchBookings()
+            }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button("booking.addNew") {
+                        isShowingNewBookingView = true
+                    }
+                }
+            }
+            .sheet(isPresented: $isShowingNewBookingView) {
+                NewBookingView()
+            }
+        }
+}
+
+private extension BookingView {
+    var content: some View {
         ScrollView {
             LazyVStack(spacing: 16) {
                 ForEach(bookingViewModel.bookings) { booking in
@@ -23,27 +58,6 @@ struct BookingView: View {
                 }
             }
             .padding()
-        }
-        .overlay {
-            if bookingViewModel.isLoading {
-                ProgressView()
-            }
-        }
-        .alert(isPresented: .init(get: { bookingViewModel.errorMessage != nil }, set: { _ in bookingViewModel.errorMessage = nil })) {
-            Alert(title: Text("booking.error"), message: Text(bookingViewModel.errorMessage ?? ""))
-        }
-        .task {
-            await bookingViewModel.fetchBookings()
-        }
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button("booking.createRandom") {
-                    Task {
-                        await bookingViewModel.createRandomBookings()
-                    }
-                }
-                .disabled(bookingViewModel.isLoading)
-            }
         }
     }
 }
