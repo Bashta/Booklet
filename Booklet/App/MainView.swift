@@ -48,6 +48,7 @@ private extension MainView {
         case .calendar: AnyView(CalendarView())
         case .customers: AnyView(CustomersView())
         case .arrival: AnyView(BookingView())
+        case .rooms: AnyView(RoomView())
         default: AnyView(Text("Selected \(mainViewModel.selectedTab.name) Menu item"))
         }
     }

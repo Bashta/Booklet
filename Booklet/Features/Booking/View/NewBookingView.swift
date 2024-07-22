@@ -8,40 +8,19 @@
 import SwiftUI
 
 struct NewBookingView: View {
+    
+    // MARK: - Properties
+    
     @Environment(\.dismiss) private var dismiss
     @Environment(\.serviceLocator.bookingViewModel) private var bookingViewModel
+    
     @State private var newBooking = Booking.empty
+    
+    // MARK: - View
     
     var body: some View {
         NavigationStack {
-            Form {
-                Section("booking.form.details") {
-                    TextField("booking.form.roomId", text: $newBooking.roomId)
-                    DatePicker("booking.form.checkInDate", selection: $newBooking.checkInDate, displayedComponents: .date)
-                    DatePicker("booking.form.checkOutDate", selection: $newBooking.checkOutDate, displayedComponents: .date)
-                    Stepper("booking.form.guestCount \(newBooking.numberOfGuests)", value: $newBooking.numberOfGuests, in: 1...10)
-                }
-                
-                Section("booking.form.customer") {
-                    TextField("booking.form.customerId", text: $newBooking.customerId)
-                }
-                
-                Section("booking.form.payment") {
-                    TextField("booking.form.totalPrice", value: $newBooking.totalPrice, format: .currency(code: "USD"))
-                }
-                
-                Section("booking.form.status") {
-                    Picker("booking.form.status", selection: $newBooking.status) {
-                        ForEach(BookingStatus.allCases, id: \.self) { status in
-                            Text("booking.status.\(status.rawValue)").tag(status)
-                        }
-                    }
-                }
-                
-                Section("booking.form.specialRequests") {
-                    TextEditor(text: Binding($newBooking.specialRequests, replacingNilWith: ""))
-                }
-            }
+            content
             .navigationTitle("booking.form.title")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -57,6 +36,41 @@ struct NewBookingView: View {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+// MARK: - Content
+
+private extension NewBookingView {
+    var content: some View {
+        Form {
+            Section("booking.form.details") {
+                TextField("booking.form.roomId", text: $newBooking.roomId)
+                DatePicker("booking.form.checkInDate", selection: $newBooking.checkInDate, displayedComponents: .date)
+                DatePicker("booking.form.checkOutDate", selection: $newBooking.checkOutDate, displayedComponents: .date)
+                Stepper("booking.form.guestCount \(newBooking.numberOfGuests)", value: $newBooking.numberOfGuests, in: 1...10)
+            }
+            
+            Section("booking.form.customer") {
+                TextField("booking.form.customerId", text: $newBooking.customerId)
+            }
+            
+            Section("booking.form.payment") {
+                TextField("booking.form.totalPrice", value: $newBooking.totalPrice, format: .currency(code: "USD"))
+            }
+            
+            Section("booking.form.status") {
+                Picker("booking.form.status", selection: $newBooking.status) {
+                    ForEach(BookingStatus.allCases, id: \.self) { status in
+                        Text("booking.status.\(status.rawValue)").tag(status)
+                    }
+                }
+            }
+            
+            Section("booking.form.specialRequests") {
+                TextEditor(text: Binding($newBooking.specialRequests, replacingNilWith: ""))
             }
         }
     }

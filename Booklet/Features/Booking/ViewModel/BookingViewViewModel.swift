@@ -26,6 +26,7 @@ class BookingViewViewModel {
 }
 
 // MARK: - Backend Calls
+
 @MainActor
 extension BookingViewViewModel {
     func addBooking(_ booking: Booking) async {

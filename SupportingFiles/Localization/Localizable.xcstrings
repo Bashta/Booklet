@@ -512,6 +512,9 @@
         }
       }
     },
+    "Capacity: %lld" : {
+
+    },
     "common.cancel" : {
       "localizations" : {
         "en" : {
@@ -679,7 +682,67 @@
         }
       }
     },
+    "Price: %@/night" : {
+
+    },
+    "Room %@" : {
+
+    },
     "Room: %lld" : {
+
+    },
+    "room.addNew" : {
+
+    },
+    "room.error.failedToCreateRoom" : {
+      "comment" : "Failed to create room"
+    },
+    "room.error.failedToDeleteRoom" : {
+      "comment" : "Failed to delete room"
+    },
+    "room.error.failedToFetchRooms" : {
+      "comment" : "Failed to fetch rooms"
+    },
+    "room.error.failedToUpdateRoom" : {
+      "comment" : "Failed to update room"
+    },
+    "room.error.invalidRoomData" : {
+      "comment" : "Invalid room data"
+    },
+    "room.error.userNotAuthenticated" : {
+      "comment" : "User is not authenticated"
+    },
+    "room.form.addAmenity" : {
+
+    },
+    "room.form.amenities" : {
+
+    },
+    "room.form.amenity" : {
+
+    },
+    "room.form.capacity %lld" : {
+
+    },
+    "room.form.details" : {
+
+    },
+    "room.form.number" : {
+
+    },
+    "room.form.price" : {
+
+    },
+    "room.form.title" : {
+
+    },
+    "room.form.type" : {
+
+    },
+    "room.noRooms" : {
+
+    },
+    "room.noRooms.description" : {
 
     },
     "Selected %@ Menu item" : {
@@ -728,6 +791,9 @@
           }
         }
       }
+    },
+    "tab.rooms" : {
+      "comment" : "Tab title"
     },
     "tab.stats" : {
       "comment" : "Tab title",

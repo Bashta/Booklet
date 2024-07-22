@@ -37,5 +37,8 @@ enum FirestoreCollection: String {
         
         /// The collection of booking documents for a specific hotel.
         case bookings = "bookings"
+        
+        /// The collection of rooms documents for a specific hotel.
+        case rooms = "rooms"
     }
 }

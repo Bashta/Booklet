@@ -14,6 +14,7 @@ enum Tabs: Equatable, Hashable, Identifiable, CaseIterable {
     case arrival
     case stats
     case customers
+    case rooms
     
     var id: Int {
         switch self {
@@ -22,6 +23,7 @@ enum Tabs: Equatable, Hashable, Identifiable, CaseIterable {
         case .arrival: 2003
         case .stats: 2004
         case .customers: 2005
+        case .rooms: 2006
         }
     }
     
@@ -32,6 +34,7 @@ enum Tabs: Equatable, Hashable, Identifiable, CaseIterable {
         case .stats: String(localized: "tab.stats", comment: "Tab title")
         case .arrival: String(localized: "tab.arrivals", comment: "Tab title")
         case .customers: String(localized: "tab.customers", comment: "Tab title")
+        case .rooms: String(localized: "tab.rooms", comment: "Tab title")
         }
     }
     
@@ -46,6 +49,7 @@ enum Tabs: Equatable, Hashable, Identifiable, CaseIterable {
         case .stats: "books.vertical"
         case .arrival: "figure.walk.arrival"
         case .customers: "person.2.fill"
+        case .rooms: "bed.double.fill"
         }
     }
 }
