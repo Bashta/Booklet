@@ -8,22 +8,13 @@
 import Foundation
 import FirebaseFirestore
 
-// MARK: - Interface
-
-protocol RoomServiceProtocol {
-    func createRoom(_ room: Room) async throws
-    func getRooms() async throws -> [Room]
-    func updateRoom(_ room: Room) async throws
-    func deleteRoom(_ roomId: String) async throws
-}
-
-class RoomService: RoomServiceProtocol {
+class RoomService {
     
     // MARK: - Properties
     
     private let db = Firestore.firestore()
     private let authService: AuthServiceProtocol
-    
+    private let entityName: String = "Room"
     // MARK: - Lifecycle
 
     init(authService: AuthServiceProtocol = AuthService()) {
@@ -31,20 +22,53 @@ class RoomService: RoomServiceProtocol {
     }
 }
 
-extension RoomService {
-    func createRoom(_ room: Room) async throws {
-        guard let collection = hotelRoomsCollection else {
-            throw RoomError.userNotAuthenticated
-        }
-        
-        do {
+// MARK: - CRUD
+
+extension RoomService: CRUDServiceProtocol {
+
+    typealias Entity = Room
+
+    func create(_ entity: Room) async throws {
+        try await performServiceCall(entity: entityName) {
+            guard let collection = self.hotelRoomsCollection else {
+                throw ServiceError.userNotAuthenticated
+            }
             let roomReference = collection.document()
-            try roomReference.setData(from: room)
-        } catch {
-            throw RoomError.failedToCreateRoom
+            try roomReference.setData(from: entity)
         }
     }
     
+    func read() async throws -> [Room] {
+        try await performServiceCall(entity: entityName) {
+            guard let collection = self.hotelRoomsCollection else {
+                throw ServiceError.userNotAuthenticated
+            }
+            let snapshot = try await collection.getDocuments()
+            return try snapshot.documents.compactMap { try $0.data(as: Room.self) }
+        }
+    }
+    
+    func update(_ entity: Room) async throws {
+        try await performServiceCall(entity: entityName) {
+            guard let roomId = entity.id, let collection = self.hotelRoomsCollection else {
+                throw ServiceError.invalidData(self.entityName)
+            }
+            let roomReference = collection.document(roomId)
+            try roomReference.setData(from: entity, merge: true)
+        }
+    }
+    
+    func delete(_ id: String) async throws {
+        try await performServiceCall(entity: entityName) {
+            guard let collection = self.hotelRoomsCollection else {
+                throw ServiceError.userNotAuthenticated
+            }
+            try await collection.document(id).delete()
+        }
+    }
+}
+
+extension RoomService {
     func getRooms() async throws -> [Room] {
         guard let collection = hotelRoomsCollection else {
             throw RoomError.userNotAuthenticated

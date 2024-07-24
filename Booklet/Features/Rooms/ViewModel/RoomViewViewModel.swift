@@ -12,8 +12,8 @@ class RoomViewViewModel {
     
     // MARK: - Properties
     
-    private let roomService: RoomServiceProtocol
-    
+    private let roomService: any CRUDServiceProtocol<Room>
+
     var rooms: [Room] = []
     var selectedRoom: Room?
     var newRoom: Room = .empty
@@ -23,7 +23,7 @@ class RoomViewViewModel {
     
     // MARK: - Lifecycle
     
-    init(roomService: RoomServiceProtocol = RoomService()) {
+    init(roomService: any CRUDServiceProtocol<Room> = RoomService()) {
         self.roomService = roomService
     }
     
@@ -33,11 +33,10 @@ class RoomViewViewModel {
 
 @MainActor
 extension RoomViewViewModel {
-    
     func fetchRooms() async {
         isLoading = true
         do {
-            rooms = try await roomService.getRooms()
+            rooms = try await roomService.read()
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -47,7 +46,7 @@ extension RoomViewViewModel {
     func addRoom(_ room: Room) async {
         isLoading = true
         do {
-            try await roomService.createRoom(room)
+            try await roomService.create(room)
             await fetchRooms()
             isAddingNewRoom = false
         } catch {
@@ -59,7 +58,7 @@ extension RoomViewViewModel {
     func updateRoom(_ room: Room) async {
         isLoading = true
         do {
-            try await roomService.updateRoom(room)
+            try await roomService.update(room)
             await fetchRooms()
         } catch {
             errorMessage = error.localizedDescription
@@ -70,7 +69,7 @@ extension RoomViewViewModel {
     func deleteRoom(_ roomId: String) async {
         isLoading = true
         do {
-            try await roomService.deleteRoom(roomId)
+            try await roomService.delete(roomId)
             await fetchRooms()
         } catch {
             errorMessage = error.localizedDescription

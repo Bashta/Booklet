@@ -682,6 +682,30 @@
         }
       }
     },
+    "error.failedToCreate" : {
+      "comment" : "Failed to create (value)"
+    },
+    "error.failedToDelete" : {
+      "comment" : "Failed to delete (value)"
+    },
+    "error.failedToFetch" : {
+      "comment" : "Failed to fetch (value)"
+    },
+    "error.failedToUpdate" : {
+      "comment" : "Failed to update (value)"
+    },
+    "error.invalidData" : {
+      "comment" : "Invalid (value) data"
+    },
+    "error.networkError" : {
+      "comment" : "Network error occurred"
+    },
+    "error.unknown" : {
+      "comment" : "An unknown error occurred: (value)"
+    },
+    "error.userNotAuthenticated" : {
+      "comment" : "User is not authenticated"
+    },
     "Price: %@/night" : {
 
     },
