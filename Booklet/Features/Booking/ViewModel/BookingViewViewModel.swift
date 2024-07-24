@@ -12,7 +12,7 @@ class BookingViewViewModel {
     
     // MARK: - Properties
     
-    private let bookingService: BookingServiceProtocol
+    private let bookingService: any CRUDServiceProtocol<Booking>
     
     var bookings: [Booking] = []
     var isLoading = false
@@ -20,7 +20,7 @@ class BookingViewViewModel {
     
     // MARK: - Lifecycle
     
-    init(bookingService: BookingServiceProtocol = BookingService()) {
+    init(bookingService: any CRUDServiceProtocol<Booking> = BookingService()) {
         self.bookingService = bookingService
     }
 }
@@ -29,21 +29,43 @@ class BookingViewViewModel {
 
 @MainActor
 extension BookingViewViewModel {
+    func fetchBookings() async {
+        isLoading = true
+        do {
+            bookings = try await bookingService.read()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+        isLoading = false
+    }
+    
     func addBooking(_ booking: Booking) async {
         isLoading = true
         do {
-            try await bookingService.createBooking(booking)
+            try await bookingService.create(booking)
             await fetchBookings()
         } catch {
             errorMessage = error.localizedDescription
         }
         isLoading = false
     }
-
-    func fetchBookings() async {
+    
+    func updateBooking(_ booking: Booking) async {
         isLoading = true
         do {
-            bookings = try await bookingService.getBookings()
+            try await bookingService.update(booking)
+            await fetchBookings()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+        isLoading = false
+    }
+    
+    func deleteBooking(withId id: String) async {
+        isLoading = true
+        do {
+            try await bookingService.delete(id)
+            await fetchBookings()
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -60,7 +82,7 @@ extension BookingViewViewModel {
         let randomBookings = Booking.createRandomBookings(count: 10)
         do {
             for booking in randomBookings {
-                try await bookingService.createBooking(booking)
+                try await bookingService.create(booking)
             }
             await fetchBookings()
         } catch {

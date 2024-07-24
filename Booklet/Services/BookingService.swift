@@ -8,22 +8,14 @@
 import Foundation
 import FirebaseFirestore
 
-// MARK: - Interface
-
-protocol BookingServiceProtocol {
-    func createBooking(_ booking: Booking) async throws
-    func getBookings() async throws -> [Booking]
-    func updateBooking(_ booking: Booking) async throws
-    func deleteBooking(_ bookingId: String) async throws
-}
-
-class BookingService: BookingServiceProtocol {
+class BookingService {
     
     // MARK: - Properties
     
     private let db = Firestore.firestore()
     private let authService: AuthServiceProtocol
-    
+    private let entityName: String = "Booking"
+
     // MARK: - Lifecycle
     
     init(authService: AuthServiceProtocol = AuthService()) {
@@ -33,62 +25,49 @@ class BookingService: BookingServiceProtocol {
 
 // MARK: - CRUD
 
-extension BookingService {
+extension BookingService: CRUDServiceProtocol {
     
-    func createBooking(_ booking: Booking) async throws {
-            guard let collection = hotelBookingsCollection else {
-                throw BookingError.userNotAuthenticated
+    typealias Entity = Booking
+
+    func create(_ entity: Booking) async throws {
+        try await performServiceCall(entity: entityName) {
+            guard let collection = self.hotelBookingsCollection else {
+                throw ServiceError.userNotAuthenticated
             }
-            
-            do {
-                let bookingReference = collection.document()
-                var bookingData = try Firestore.Encoder().encode(booking)
-                bookingData["hotelId"] = authService.getCurrentUserId()
-                try await bookingReference.setData(bookingData)
-            } catch {
-                throw BookingError.failedToCreateBooking
-            }
+            let roomReference = collection.document()
+            try roomReference.setData(from: entity)
         }
+    }
+    
+    func read() async throws -> [Booking] {
+        try await performServiceCall(entity: entityName) {
+            guard let collection = self.hotelBookingsCollection else {
+                throw ServiceError.userNotAuthenticated
+            }
+            let snapshot = try await collection.getDocuments()
+            return try snapshot.documents.compactMap { try $0.data(as: Booking.self) }
+        }
+    }
+    
+    func update(_ entity: Booking) async throws {
+        try await performServiceCall(entity: entityName) {
+            guard let roomId = entity.id, let collection = self.hotelBookingsCollection else {
+                throw ServiceError.invalidData(self.entityName)
+            }
+            let roomReference = collection.document(roomId)
+            try roomReference.setData(from: entity, merge: true)
+        }
+    }
         
-        func getBookings() async throws -> [Booking] {
-            guard let collection = hotelBookingsCollection else {
-                throw BookingError.userNotAuthenticated
+    func delete(_ id: String) async throws {
+        try await performServiceCall(entity: entityName) {
+            guard let collection = self.hotelBookingsCollection else {
+                throw ServiceError.userNotAuthenticated
             }
-            
-            do {
-                let snapshot = try await collection.getDocuments()
-                return try snapshot.documents.compactMap { document in
-                    try document.data(as: Booking.self)
-                }
-            } catch {
-                throw BookingError.failedToFetchBookings
-            }
+            try await collection.document(id).delete()
         }
-        
-        func updateBooking(_ booking: Booking) async throws {
-            guard let bookingId = booking.id, let collection = hotelBookingsCollection else {
-                throw BookingError.invalidBookingData
-            }
-            
-            do {
-                let bookingReference = collection.document(bookingId)
-                try bookingReference.setData(from: booking, merge: true)
-            } catch {
-                throw BookingError.failedToUpdateBooking
-            }
-        }
-        
-        func deleteBooking(_ bookingId: String) async throws {
-            guard let collection = hotelBookingsCollection else {
-                throw BookingError.userNotAuthenticated
-            }
-            
-            do {
-                try await collection.document(bookingId).delete()
-            } catch {
-                throw BookingError.failedToDeleteBooking
-            }
-        }
+    }
+    
 }
 
 // MARK: - Helpers

@@ -111,6 +111,12 @@ extension RoomService {
 }
 
 private extension RoomService {
+    /// Provides access to the Firestore collection of rooms for the currently authenticated hotel.
+    ///
+    /// This computed property returns a `CollectionReference` for the hotel's rooms if a user is
+    /// authenticated, or `nil` if no user is currently logged in.
+    ///
+    /// - Returns: A `CollectionReference` pointing to the hotel's bookings collection if authenticated, otherwise `nil`.
     var hotelRoomsCollection: CollectionReference? {
         guard let hotelId = authService.getCurrentUserId() else { return nil }
         return db.collection(FirestoreCollection.hotels.rawValue)
