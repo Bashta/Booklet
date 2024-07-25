@@ -318,6 +318,7 @@
     },
     "booking.error.failedToCreateBooking" : {
       "comment" : "Failed to create booking",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -329,6 +330,7 @@
     },
     "booking.error.failedToDeleteBooking" : {
       "comment" : "Failed to delete booking",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -340,6 +342,7 @@
     },
     "booking.error.failedToFetchBookings" : {
       "comment" : "Failed to fetch bookings",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -351,6 +354,7 @@
     },
     "booking.error.failedToUpdateBooking" : {
       "comment" : "Failed to update booking",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -362,6 +366,7 @@
     },
     "booking.error.invalidBookingData" : {
       "comment" : "Invalid booking data",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -373,6 +378,7 @@
     },
     "booking.error.userNotAuthenticated" : {
       "comment" : "User is not authenticated",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -717,24 +723,6 @@
     },
     "room.addNew" : {
 
-    },
-    "room.error.failedToCreateRoom" : {
-      "comment" : "Failed to create room"
-    },
-    "room.error.failedToDeleteRoom" : {
-      "comment" : "Failed to delete room"
-    },
-    "room.error.failedToFetchRooms" : {
-      "comment" : "Failed to fetch rooms"
-    },
-    "room.error.failedToUpdateRoom" : {
-      "comment" : "Failed to update room"
-    },
-    "room.error.invalidRoomData" : {
-      "comment" : "Invalid room data"
-    },
-    "room.error.userNotAuthenticated" : {
-      "comment" : "User is not authenticated"
     },
     "room.form.addAmenity" : {
 

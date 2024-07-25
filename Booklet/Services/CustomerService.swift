@@ -8,14 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-// MARK: - Interface
-
-protocol CustomerServiceProtocol {
-    func createCustomer(_ customer: Customer) async throws
-    func getCustomers() async throws -> [Customer]
-}
-
-class CustomerService: CustomerServiceProtocol {
+class CustomerService {
 
     // MARK: - Properties
     

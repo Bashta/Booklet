@@ -68,48 +68,6 @@ extension RoomService: CRUDServiceProtocol {
     }
 }
 
-extension RoomService {
-    func getRooms() async throws -> [Room] {
-        guard let collection = hotelRoomsCollection else {
-            throw RoomError.userNotAuthenticated
-        }
-        
-        do {
-            let snapshot = try await collection.getDocuments()
-            return try snapshot.documents.compactMap { document in
-                try document.data(as: Room.self)
-            }
-        } catch {
-            throw RoomError.failedToFetchRooms
-        }
-    }
-    
-    func updateRoom(_ room: Room) async throws {
-        guard let roomId = room.id, let collection = hotelRoomsCollection else {
-            throw RoomError.invalidRoomData
-        }
-        
-        do {
-            let roomReference = collection.document(roomId)
-            try roomReference.setData(from: room, merge: true)
-        } catch {
-            throw RoomError.failedToUpdateRoom
-        }
-    }
-    
-    func deleteRoom(_ roomId: String) async throws {
-        guard let collection = hotelRoomsCollection else {
-            throw RoomError.userNotAuthenticated
-        }
-        
-        do {
-            try await collection.document(roomId).delete()
-        } catch {
-            throw RoomError.failedToDeleteRoom
-        }
-    }
-}
-
 private extension RoomService {
     /// Provides access to the Firestore collection of rooms for the currently authenticated hotel.
     ///
