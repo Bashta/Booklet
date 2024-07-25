@@ -12,7 +12,7 @@ class CustomersViewViewModel {
     
     // MARK: - Properties
     
-    private let customerService: CustomerServiceProtocol
+    private let customerService: any CRUDServiceProtocol<Customer>
     
     var customers: [Customer] = []
     var selectedCustomer: Customer?
@@ -23,8 +23,17 @@ class CustomersViewViewModel {
     
     // MARK: - Lifecycle
     
-    init(customerService: CustomerServiceProtocol = CustomerService()) {
+    init(customerService: any CRUDServiceProtocol<Customer> = CustomerService()) {
         self.customerService = customerService
+    }
+}
+
+// MARK: - State mangment
+
+extension CustomersViewViewModel {
+    func createNewCustomer() {
+        isAddingNewCustomer = true
+        newCustomer = Customer(firstName: "Name", lastName: "Surname")
     }
 }
 
@@ -34,27 +43,43 @@ extension CustomersViewViewModel {
     func fetchCustomers() async {
         isLoading = true
         do {
-            customers = try await customerService.getCustomers()
+            customers = try await customerService.read()
         } catch {
             errorMessage = error.localizedDescription
         }
         isLoading = false
     }
     
-    func addOrUpdateCustomer(_ customer: Customer) async {
+    func addCustomer(_ customer: Customer) async {
         isLoading = true
         do {
-            try await customerService.createCustomer(customer)
+            try await customerService.create(customer)
             await fetchCustomers()
-            isAddingNewCustomer = false
         } catch {
             errorMessage = error.localizedDescription
         }
         isLoading = false
     }
     
-    func addNewCustomer() {
-        isAddingNewCustomer = true
-        newCustomer = Customer(firstName: "Name", lastName: "Surname")
+    func updateCustomer(_ customer: Customer) async {
+        isLoading = true
+        do {
+            try await customerService.update(customer)
+            await fetchCustomers()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+        isLoading = false
+    }
+    
+    func deleteCustomer(withId id: String) async {
+        isLoading = true
+        do {
+            try await customerService.delete(id)
+            await fetchCustomers()
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+        isLoading = false
     }
 }

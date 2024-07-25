@@ -21,7 +21,7 @@ struct CustomersView: View {
                 ToolbarItem(placement: .primaryAction) {
                     AddEntityButton(
                         title: "customers.addCustomer.button",
-                        action: customersViewModel.addNewCustomer
+                        action: customersViewModel.createNewCustomer
                     )
                 }
             }
@@ -79,7 +79,7 @@ private extension CustomersView {
                 Text("customers.noCustomers.description")
             } actions: {
                 Button {
-                    customersViewModel.addNewCustomer()
+                    customersViewModel.createNewCustomer()
                 } label: {
                     Image(systemName: "person.fill.badge.plus")
                         .padding(8)

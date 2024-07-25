@@ -36,7 +36,7 @@ private extension CustomerForm {
             
             Button("customers.save") {
                 Task {
-                    await customersViewModel.addOrUpdateCustomer(customersViewModel.newCustomer)
+                    await customersViewModel.addCustomer(customersViewModel.newCustomer)
                 }
             }
             .frame(maxWidth: .infinity)

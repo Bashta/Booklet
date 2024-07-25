@@ -14,38 +14,54 @@ class CustomerService {
     
     private let db = Firestore.firestore()
     private let authService: AuthServiceProtocol
-    
+    private let entityName: String = "Customer"
+
     // MARK: - Lifecycle
     
     init(authService: AuthServiceProtocol = AuthService()) {
         self.authService = authService
     }
+}
+
+extension CustomerService: CRUDServiceProtocol {
+    typealias Entity = Customer
     
-    // MARK: - Public interface
-    
-    func createCustomer(_ customer: Customer) async throws {
-        guard let collection = hotelCustomersCollection else {
-            throw CustomerError.userNotAuthenticated
-        }
-        
-        do {
-            let documentReference = collection.document(customer.uuid.uuidString)
-            try documentReference.setData(from: customer)
-        } catch {
-            throw CustomerError.failedToCreateCustomer
+    func create(_ entity: Customer) async throws {
+        try await performServiceCall(entity: entityName) {
+            guard let collection = self.hotelCustomersCollection else {
+                throw ServiceError.userNotAuthenticated
+            }
+            let roomReference = collection.document()
+            try roomReference.setData(from: entity)
         }
     }
     
-    func getCustomers() async throws -> [Customer] {
-        guard let collection = hotelCustomersCollection else {
-            throw CustomerError.userNotAuthenticated
-        }
-        
-        do {
+    func read() async throws -> [Customer] {
+        try await performServiceCall(entity: entityName) {
+            guard let collection = self.hotelCustomersCollection else {
+                throw ServiceError.userNotAuthenticated
+            }
             let snapshot = try await collection.getDocuments()
-            return try snapshot.decode(as: Customer.self)
-        } catch {
-            throw CustomerError.failedToFetchCustomers
+            return try snapshot.documents.compactMap { try $0.data(as: Customer.self) }
+        }
+    }
+    
+    func update(_ entity: Customer) async throws {
+        try await performServiceCall(entity: entityName) {
+            guard let roomId = entity.id, let collection = self.hotelCustomersCollection else {
+                throw ServiceError.invalidData(self.entityName)
+            }
+            let roomReference = collection.document(roomId)
+            try roomReference.setData(from: entity, merge: true)
+        }
+    }
+        
+    func delete(_ id: String) async throws {
+        try await performServiceCall(entity: entityName) {
+            guard let collection = self.hotelCustomersCollection else {
+                throw ServiceError.userNotAuthenticated
+            }
+            try await collection.document(id).delete()
         }
     }
 }

@@ -67,7 +67,6 @@ extension BookingService: CRUDServiceProtocol {
             try await collection.document(id).delete()
         }
     }
-    
 }
 
 // MARK: - Helpers

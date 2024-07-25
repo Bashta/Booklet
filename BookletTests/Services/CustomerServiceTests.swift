@@ -91,7 +91,7 @@ class CustomerServiceTests: XCTestCase {
 
     func testAddNewCustomer() {
         // Act
-        customerViewModel.addNewCustomer()
+        customerViewModel.createNewCustomer()
 
         // Assert
         XCTAssertTrue(customerViewModel.isAddingNewCustomer)
