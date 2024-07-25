@@ -21,7 +21,6 @@
 		424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E7D2B2C370F63001EAD2E /* BookletApp.swift */; };
 		424E7D302C370F64001EAD2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424E7D2F2C370F64001EAD2E /* Assets.xcassets */; };
 		424E7D332C370F64001EAD2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424E7D322C370F64001EAD2E /* Preview Assets.xcassets */; };
-		424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E7D562C3713CE001EAD2E /* CalendarView.swift */; };
 		4275C3E92C46EBB60076892A /* Binding+NilCoalescing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275C3E82C46EBB50076892A /* Binding+NilCoalescing.swift */; };
 		4275C3FB2C484ACD0076892A /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4275C3FA2C484ACD0076892A /* ServiceLocator.swift */; };
 		427B64B32C409EC9008AA0BA /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B64B22C409EC9008AA0BA /* AuthView.swift */; };
@@ -48,6 +47,7 @@
 		42B05DAE2C3F4C300022D676 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 42B05DAD2C3F4C300022D676 /* GoogleSignIn */; };
 		42B05DB02C3F4C300022D676 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 42B05DAF2C3F4C300022D676 /* GoogleSignInSwift */; };
 		42B51AE22C52C29D0038808B /* FirestoreCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B51AE12C52C29D0038808B /* FirestoreCollectionProvider.swift */; };
+		42B51AE52C5306990038808B /* HotelCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B51AE42C5306990038808B /* HotelCalendarView.swift */; };
 		42BF3D7F2C44601300E61833 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D7E2C44601300E61833 /* AuthError.swift */; };
 		42BF3D812C44739000E61833 /* PasswordStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D802C44739000E61833 /* PasswordStrengthView.swift */; };
 		42BF3D832C4476EC00E61833 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 42BF3D822C4476EC00E61833 /* Localizable.xcstrings */; };
@@ -100,7 +100,6 @@
 		424E7D342C370F64001EAD2E /* Booklet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Booklet.entitlements; sourceTree = "<group>"; };
 		424E7D392C370F64001EAD2E /* BookletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424E7D432C370F64001EAD2E /* BookletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		424E7D562C3713CE001EAD2E /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		4275C3E82C46EBB50076892A /* Binding+NilCoalescing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+NilCoalescing.swift"; sourceTree = "<group>"; };
 		4275C3FA2C484ACD0076892A /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		427B64B22C409EC9008AA0BA /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -125,6 +124,7 @@
 		42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersView.swift; sourceTree = "<group>"; };
 		42ACA44B2C3F1BA7009BA7D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42B51AE12C52C29D0038808B /* FirestoreCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCollectionProvider.swift; sourceTree = "<group>"; };
+		42B51AE42C5306990038808B /* HotelCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelCalendarView.swift; sourceTree = "<group>"; };
 		42BF3D7E2C44601300E61833 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		42BF3D802C44739000E61833 /* PasswordStrengthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStrengthView.swift; sourceTree = "<group>"; };
 		42BF3D822C4476EC00E61833 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -230,7 +230,6 @@
 				427B64BB2C41F43F008AA0BA /* App */,
 				427B64AF2C409EA0008AA0BA /* Features */,
 				42BDC4E72C409C3E00B4A13C /* Utils */,
-				42ACA4432C3EF122009BA7D2 /* Views */,
 				42ACA4402C3EEE4E009BA7D2 /* Models */,
 				4275C3E72C46EB000076892A /* Extensions */,
 				424E7D2F2C370F64001EAD2E /* Assets.xcassets */,
@@ -293,6 +292,7 @@
 		427B64AF2C409EA0008AA0BA /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				42B51AE32C52CB5D0038808B /* Calendar */,
 				4207BAB62C4ED8E9007C1CAE /* Rooms */,
 				42A33B072C4B22FD00504009 /* Booking */,
 				42BF3D9D2C45449300E61833 /* Customers */,
@@ -447,19 +447,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		42ACA4432C3EF122009BA7D2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				424E7D562C3713CE001EAD2E /* CalendarView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		42ACA4462C3EF22D009BA7D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42B51AE32C52CB5D0038808B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				42B51AE42C5306990038808B /* HotelCalendarView.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		42BDC4E72C409C3E00B4A13C /* Utils */ = {
@@ -689,10 +689,10 @@
 				42A33AF72C4AF99400504009 /* MinimumLoadingTime.swift in Sources */,
 				42ACA4422C3EEE61009BA7D2 /* Customer.swift in Sources */,
 				4207BAB92C4ED903007C1CAE /* RoomViewViewModel.swift in Sources */,
-				424E7D572C3713CE001EAD2E /* CalendarView.swift in Sources */,
 				42A33AFE2C4B107700504009 /* FirestoreExtensions.swift in Sources */,
 				4207BAAB2C4EAB71007C1CAE /* NewBookingView.swift in Sources */,
 				42A33B052C4B20E300504009 /* BookingService.swift in Sources */,
+				42B51AE52C5306990038808B /* HotelCalendarView.swift in Sources */,
 				42ACA4452C3EF138009BA7D2 /* CustomerForm.swift in Sources */,
 				4207BABE2C4EDA61007C1CAE /* NewRoomView.swift in Sources */,
 				4275C3FB2C484ACD0076892A /* ServiceLocator.swift in Sources */,
