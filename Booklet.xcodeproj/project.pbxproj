@@ -47,6 +47,7 @@
 		42ACA44C2C3F1BA7009BA7D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42ACA44B2C3F1BA7009BA7D2 /* GoogleService-Info.plist */; };
 		42B05DAE2C3F4C300022D676 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 42B05DAD2C3F4C300022D676 /* GoogleSignIn */; };
 		42B05DB02C3F4C300022D676 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 42B05DAF2C3F4C300022D676 /* GoogleSignInSwift */; };
+		42B51AE22C52C29D0038808B /* FirestoreCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B51AE12C52C29D0038808B /* FirestoreCollectionProvider.swift */; };
 		42BF3D7F2C44601300E61833 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D7E2C44601300E61833 /* AuthError.swift */; };
 		42BF3D812C44739000E61833 /* PasswordStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D802C44739000E61833 /* PasswordStrengthView.swift */; };
 		42BF3D832C4476EC00E61833 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 42BF3D822C4476EC00E61833 /* Localizable.xcstrings */; };
@@ -123,6 +124,7 @@
 		42ACA4442C3EF138009BA7D2 /* CustomerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerForm.swift; sourceTree = "<group>"; };
 		42ACA4492C3EF5F3009BA7D2 /* CustomersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomersView.swift; sourceTree = "<group>"; };
 		42ACA44B2C3F1BA7009BA7D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		42B51AE12C52C29D0038808B /* FirestoreCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCollectionProvider.swift; sourceTree = "<group>"; };
 		42BF3D7E2C44601300E61833 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		42BF3D802C44739000E61833 /* PasswordStrengthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStrengthView.swift; sourceTree = "<group>"; };
 		42BF3D822C4476EC00E61833 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				42A33B042C4B20E300504009 /* BookingService.swift */,
 				4207BAB22C4ED725007C1CAE /* RoomService.swift */,
 				4207BAC32C507B97007C1CAE /* CRUDServiceProtocol.swift */,
+				42B51AE12C52C29D0038808B /* FirestoreCollectionProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				427B64DA2C42FE3B008AA0BA /* AuthButton.swift in Sources */,
 				42BF3D812C44739000E61833 /* PasswordStrengthView.swift in Sources */,
 				427B64D52C42EC21008AA0BA /* AppUser.swift in Sources */,
+				42B51AE22C52C29D0038808B /* FirestoreCollectionProvider.swift in Sources */,
 				42A33B012C4B1B8700504009 /* FirestoreCollection.swift in Sources */,
 				42A33B0B2C4B233A00504009 /* BookingViewViewModel.swift in Sources */,
 				42A33AF12C4AF76700504009 /* LoadingView.swift in Sources */,

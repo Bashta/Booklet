@@ -8,23 +8,33 @@
 import Foundation
 import FirebaseFirestore
 
-class CustomerService {
+class CustomerService: FirestoreCollectionProvider {
 
     // MARK: - Properties
     
-    private let db = Firestore.firestore()
-    private let authService: AuthServiceProtocol
+    internal let db: Firestore
+    internal let authService: AuthServiceProtocol
+    
     private let entityName: String = "Customer"
 
     // MARK: - Lifecycle
     
-    init(authService: AuthServiceProtocol = AuthService()) {
+    init(
+        db: Firestore = Firestore.firestore(),
+        authService: AuthServiceProtocol = AuthService()
+    ) {
+        self.db = db
         self.authService = authService
     }
 }
 
 extension CustomerService: CRUDServiceProtocol {
+  
     typealias Entity = Customer
+    
+    private var hotelCustomersCollection: CollectionReference? {
+        return getCollection(for: .bookings)
+    }
     
     func create(_ entity: Customer) async throws {
         try await performServiceCall(entity: entityName) {
@@ -63,22 +73,5 @@ extension CustomerService: CRUDServiceProtocol {
             }
             try await collection.document(id).delete()
         }
-    }
-}
-
-// MARK: - Helpers
-
-private extension CustomerService {
-    /// Provides access to the Firestore collection of customers for the currently authenticated user.
-    ///
-    /// This computed property returns a `CollectionReference` for the user's customers if a user is
-    /// authenticated, or `nil` if no user is currently logged in.
-    ///
-    /// - Returns: A `CollectionReference` pointing to the user's customers collection if authenticated, otherwise `nil`.
-    private var hotelCustomersCollection: CollectionReference? {
-        guard let hotelId = authService.getCurrentUserId() else { return nil }
-        return db.collection(FirestoreCollection.hotels.rawValue)
-            .document(hotelId)
-            .collection(FirestoreCollection.Hotel.customers.rawValue)
     }
 }

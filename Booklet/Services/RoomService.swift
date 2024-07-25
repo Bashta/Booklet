@@ -8,16 +8,22 @@
 import Foundation
 import FirebaseFirestore
 
-class RoomService {
+class RoomService: FirestoreCollectionProvider {
     
     // MARK: - Properties
     
-    private let db = Firestore.firestore()
-    private let authService: AuthServiceProtocol
+    internal let db: Firestore
+    internal let authService: AuthServiceProtocol
+    
     private let entityName: String = "Room"
+    
     // MARK: - Lifecycle
 
-    init(authService: AuthServiceProtocol = AuthService()) {
+    init(
+        db: Firestore = Firestore.firestore(),
+        authService: AuthServiceProtocol = AuthService()
+    ) {
+        self.db = db
         self.authService = authService
     }
 }
@@ -28,6 +34,10 @@ extension RoomService: CRUDServiceProtocol {
 
     typealias Entity = Room
 
+    private var hotelRoomsCollection: CollectionReference? {
+        return getCollection(for: .rooms)
+    }
+    
     func create(_ entity: Room) async throws {
         try await performServiceCall(entity: entityName) {
             guard let collection = self.hotelRoomsCollection else {
@@ -65,20 +75,5 @@ extension RoomService: CRUDServiceProtocol {
             }
             try await collection.document(id).delete()
         }
-    }
-}
-
-private extension RoomService {
-    /// Provides access to the Firestore collection of rooms for the currently authenticated hotel.
-    ///
-    /// This computed property returns a `CollectionReference` for the hotel's rooms if a user is
-    /// authenticated, or `nil` if no user is currently logged in.
-    ///
-    /// - Returns: A `CollectionReference` pointing to the hotel's bookings collection if authenticated, otherwise `nil`.
-    var hotelRoomsCollection: CollectionReference? {
-        guard let hotelId = authService.getCurrentUserId() else { return nil }
-        return db.collection(FirestoreCollection.hotels.rawValue)
-            .document(hotelId)
-            .collection(FirestoreCollection.Hotel.rooms.rawValue)
     }
 }

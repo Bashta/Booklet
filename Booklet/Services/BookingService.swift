@@ -8,17 +8,21 @@
 import Foundation
 import FirebaseFirestore
 
-class BookingService {
+class BookingService: FirestoreCollectionProvider {
     
     // MARK: - Properties
     
-    private let db = Firestore.firestore()
-    private let authService: AuthServiceProtocol
+    internal let db: Firestore
+    internal let authService: AuthServiceProtocol
     private let entityName: String = "Booking"
 
     // MARK: - Lifecycle
     
-    init(authService: AuthServiceProtocol = AuthService()) {
+    init(
+        db: Firestore = Firestore.firestore(),
+        authService: AuthServiceProtocol = AuthService()
+    ) {
+        self.db = db
         self.authService = authService
     }
 }
@@ -28,7 +32,11 @@ class BookingService {
 extension BookingService: CRUDServiceProtocol {
     
     typealias Entity = Booking
-
+    
+    private var hotelBookingsCollection: CollectionReference? {
+        return getCollection(for: .bookings)
+    }
+    
     func create(_ entity: Booking) async throws {
         try await performServiceCall(entity: entityName) {
             guard let collection = self.hotelBookingsCollection else {
@@ -66,22 +74,5 @@ extension BookingService: CRUDServiceProtocol {
             }
             try await collection.document(id).delete()
         }
-    }
-}
-
-// MARK: - Helpers
-
-private extension BookingService {
-    /// Provides access to the Firestore collection of bookings for the currently authenticated hotel.
-    ///
-    /// This computed property returns a `CollectionReference` for the hotel's bookings if a user is
-    /// authenticated, or `nil` if no user is currently logged in.
-    ///
-    /// - Returns: A `CollectionReference` pointing to the hotel's bookings collection if authenticated, otherwise `nil`.
-    var hotelBookingsCollection: CollectionReference? {
-        guard let hotelId = authService.getCurrentUserId() else { return nil }
-        return db.collection(FirestoreCollection.hotels.rawValue)
-            .document(hotelId)
-            .collection(FirestoreCollection.Hotel.bookings.rawValue)
     }
 }
