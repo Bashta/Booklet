@@ -8,15 +8,36 @@
 import Foundation
 import Firebase
 
+/// A protocol that defines CRUD (Create, Read, Update, Delete) operations for entities in a Firestore database.
+/// Conforming types must also implement `FirestoreCollectionProvider` to access Firestore collections.
 protocol CRUDServiceProtocol: FirestoreCollectionProvider {
+    /// The type of entity this service operates on. Must conform to `Identifiable`, `Codable`, and `IDAssignable`.
     associatedtype Entity: Identifiable & Codable & IDAssignable
     
+    /// The Firestore collection type where entities are stored.
     var collectionType: FirestoreCollection.Hotel { get }
+    
+    /// A string representation of the entity name, used for error reporting and logging.
     var entityName: String { get }
     
+    /// Creates a new entity in the Firestore database.
+    /// - Parameter entity: The entity to be created.
+    /// - Throws: `ServiceError` if creation fails.
     func create(_ entity: Entity) async throws
+    
+    /// Retrieves all entities from the Firestore database.
+    /// - Returns: An array of entities.
+    /// - Throws: `ServiceError` if retrieval fails.
     func read() async throws -> [Entity]
+    
+    /// Updates an existing entity in the Firestore database.
+    /// - Parameter entity: The entity to be updated.
+    /// - Throws: `ServiceError` if update fails.
     func update(_ entity: Entity) async throws
+    
+    /// Deletes an entity from the Firestore database.
+    /// - Parameter id: The ID of the entity to be deleted.
+    /// - Throws: `ServiceError` if deletion fails.
     func delete(_ id: String) async throws
 }
 
