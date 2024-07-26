@@ -12,15 +12,15 @@ class BookingViewViewModel {
     
     // MARK: - Properties
     
-    private let bookingService: any CRUDServiceProtocol<Booking>
-    
+    private let bookingService: BookingService
+
     var bookings: [Booking] = []
     var isLoading = false
     var errorMessage: String?
     
     // MARK: - Lifecycle
     
-    init(bookingService: any CRUDServiceProtocol<Booking> = BookingService()) {
+    init(bookingService: BookingService = BookingService()) {
         self.bookingService = bookingService
     }
 }

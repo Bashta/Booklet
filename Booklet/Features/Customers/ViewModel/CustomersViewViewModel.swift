@@ -10,10 +10,8 @@ import Foundation
 @Observable
 class CustomersViewViewModel {
     
-    // MARK: - Properties
-    
-    private let customerService: any CRUDServiceProtocol<Customer>
-    
+    private let customerService: CustomerService
+
     var customers: [Customer] = []
     var selectedCustomer: Customer?
     var newCustomer: Customer = .init(firstName: "Name", lastName: "Surname")
@@ -21,9 +19,7 @@ class CustomersViewViewModel {
     var isLoading = false
     var errorMessage: String?
     
-    // MARK: - Lifecycle
-    
-    init(customerService: any CRUDServiceProtocol<Customer> = CustomerService()) {
+    init(customerService: CustomerService = CustomerService()) {
         self.customerService = customerService
     }
 }

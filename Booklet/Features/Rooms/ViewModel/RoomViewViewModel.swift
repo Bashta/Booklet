@@ -12,7 +12,7 @@ class RoomViewViewModel {
     
     // MARK: - Properties
     
-    private let roomService: any CRUDServiceProtocol<Room>
+    private let roomService: RoomService
 
     var rooms: [Room] = []
     var selectedRoom: Room?
@@ -23,7 +23,7 @@ class RoomViewViewModel {
     
     // MARK: - Lifecycle
     
-    init(roomService: any CRUDServiceProtocol<Room> = RoomService()) {
+    init(roomService: RoomService = RoomService()) {
         self.roomService = roomService
     }
     

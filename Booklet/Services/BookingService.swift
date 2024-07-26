@@ -8,71 +8,18 @@
 import Foundation
 import FirebaseFirestore
 
-class BookingService: FirestoreCollectionProvider {
-    
-    // MARK: - Properties
-    
-    internal let db: Firestore
-    internal let authService: AuthServiceProtocol
-    private let entityName: String = "Booking"
 
-    // MARK: - Lifecycle
-    
-    init(
-        db: Firestore = Firestore.firestore(),
-        authService: AuthServiceProtocol = AuthService()
-    ) {
-        self.db = db
-        self.authService = authService
-    }
-}
-
-// MARK: - CRUD
-
-extension BookingService: CRUDServiceProtocol {
-    
+class BookingService: CRUDServiceProtocol {
+   
     typealias Entity = Booking
     
-    private var hotelBookingsCollection: CollectionReference? {
-        return getCollection(for: .bookings)
-    }
+    let db: Firestore
+    let authService: AuthServiceProtocol
+    let collectionType: FirestoreCollection.Hotel = .bookings
+    let entityName: String = "Booking"
     
-    func create(_ entity: Booking) async throws {
-        try await performServiceCall(entity: entityName) {
-            guard let collection = self.hotelBookingsCollection else {
-                throw ServiceError.userNotAuthenticated
-            }
-            let roomReference = collection.document()
-            try roomReference.setData(from: entity)
-        }
-    }
-    
-    func read() async throws -> [Booking] {
-        try await performServiceCall(entity: entityName) {
-            guard let collection = self.hotelBookingsCollection else {
-                throw ServiceError.userNotAuthenticated
-            }
-            let snapshot = try await collection.getDocuments()
-            return try snapshot.documents.compactMap { try $0.data(as: Booking.self) }
-        }
-    }
-    
-    func update(_ entity: Booking) async throws {
-        try await performServiceCall(entity: entityName) {
-            guard let roomId = entity.id, let collection = self.hotelBookingsCollection else {
-                throw ServiceError.invalidData(self.entityName)
-            }
-            let roomReference = collection.document(roomId)
-            try roomReference.setData(from: entity, merge: true)
-        }
-    }
-        
-    func delete(_ id: String) async throws {
-        try await performServiceCall(entity: entityName) {
-            guard let collection = self.hotelBookingsCollection else {
-                throw ServiceError.userNotAuthenticated
-            }
-            try await collection.document(id).delete()
-        }
+    init(db: Firestore = Firestore.firestore(), authService: AuthServiceProtocol = AuthService()) {
+        self.db = db
+        self.authService = authService
     }
 }
