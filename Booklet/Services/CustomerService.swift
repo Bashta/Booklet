@@ -33,7 +33,7 @@ extension CustomerService: CRUDServiceProtocol {
     typealias Entity = Customer
     
     private var hotelCustomersCollection: CollectionReference? {
-        return getCollection(for: .bookings)
+        return getCollection(for: .customers)
     }
     
     func create(_ entity: Customer) async throws {
