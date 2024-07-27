@@ -316,78 +316,6 @@
         }
       }
     },
-    "booking.error.failedToCreateBooking" : {
-      "comment" : "Failed to create booking",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Failed to create booking"
-          }
-        }
-      }
-    },
-    "booking.error.failedToDeleteBooking" : {
-      "comment" : "Failed to delete booking",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Failed to delete booking"
-          }
-        }
-      }
-    },
-    "booking.error.failedToFetchBookings" : {
-      "comment" : "Failed to fetch bookings",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Failed to fetch bookings"
-          }
-        }
-      }
-    },
-    "booking.error.failedToUpdateBooking" : {
-      "comment" : "Failed to update booking",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Failed to update booking"
-          }
-        }
-      }
-    },
-    "booking.error.invalidBookingData" : {
-      "comment" : "Invalid booking data",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invalid booking data"
-          }
-        }
-      }
-    },
-    "booking.error.userNotAuthenticated" : {
-      "comment" : "User is not authenticated",
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "User is not authenticated"
-          }
-        }
-      }
-    },
     "booking.form.checkInDate" : {
       "localizations" : {
         "en" : {
@@ -689,28 +617,92 @@
       }
     },
     "error.failedToCreate" : {
-      "comment" : "Failed to create (value)"
+      "comment" : "Failed to create (value)",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to create %@"
+          }
+        }
+      }
     },
     "error.failedToDelete" : {
-      "comment" : "Failed to delete (value)"
+      "comment" : "Failed to delete (value)",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to delete %@"
+          }
+        }
+      }
     },
     "error.failedToFetch" : {
-      "comment" : "Failed to fetch (value)"
+      "comment" : "Failed to fetch (value)",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to fetch %@"
+          }
+        }
+      }
     },
     "error.failedToUpdate" : {
-      "comment" : "Failed to update (value)"
+      "comment" : "Failed to update (value)",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to update %@"
+          }
+        }
+      }
     },
     "error.invalidData" : {
-      "comment" : "Invalid (value) data"
+      "comment" : "Invalid (value) data",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to update %@"
+          }
+        }
+      }
     },
     "error.networkError" : {
-      "comment" : "Network error occurred"
+      "comment" : "Network error occurred",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network error occurred"
+          }
+        }
+      }
     },
     "error.unknown" : {
-      "comment" : "An unknown error occurred: (value)"
+      "comment" : "An unknown error occurred: (value)",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error occurred: %@"
+          }
+        }
+      }
     },
     "error.userNotAuthenticated" : {
-      "comment" : "User is not authenticated"
+      "comment" : "User is not authenticated",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User is not authenticated"
+          }
+        }
+      }
     },
     "Price: %@/night" : {
 
@@ -719,28 +711,84 @@
 
     },
     "room.addNew" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add new"
+          }
+        }
+      }
     },
     "room.form.addAmenity" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add"
+          }
+        }
+      }
     },
     "room.form.amenities" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amenities"
+          }
+        }
+      }
     },
     "room.form.amenity" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amenity"
+          }
+        }
+      }
     },
     "room.form.capacity %lld" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Room capacity %lld"
+          }
+        }
+      }
     },
     "room.form.details" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details"
+          }
+        }
+      }
     },
     "room.form.number" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Room #"
+          }
+        }
+      }
     },
     "room.form.price" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Price"
+          }
+        }
+      }
     },
     "room.form.title" : {
 
@@ -802,7 +850,15 @@
       }
     },
     "tab.rooms" : {
-      "comment" : "Tab title"
+      "comment" : "Tab title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rooms"
+          }
+        }
+      }
     },
     "tab.stats" : {
       "comment" : "Tab title",
