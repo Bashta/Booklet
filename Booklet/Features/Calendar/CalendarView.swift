@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+extension Date {
+    
+}
+
 struct CalendarView: View {
     let columns: [Date]
     let rows: [String]
@@ -25,7 +29,7 @@ struct CalendarView: View {
             rowWidth: 100,
             rowHeight: 30
         ) { column in
-            Text(formatDate(column))
+            Text(DateFormatter.formatCalendarDate(column))
                 .frame(width: 100, height: 30)
                 .background(Color.gray.opacity(0.2))
         } rowView: { row in
@@ -40,22 +44,16 @@ struct CalendarView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d"
-        return formatter.string(from: date)
-    }
-    
     private static func generateDates() -> [Date] {
         let calendar = Calendar.current
         let today = Date()
-        return (0..<30).map { day in
+        return (0..<60).map { day in
             calendar.date(byAdding: .day, value: day, to: today)!
         }
     }
     
     private static func generateRoomNumbers() -> [String] {
-        (1...69).map { "Room \(String(format: "%03d", $0))" }
+        (1...30).map { "Room \(String(format: "%03d", $0))" }
     }
 }
 

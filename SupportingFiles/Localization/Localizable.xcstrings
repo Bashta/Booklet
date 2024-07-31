@@ -576,6 +576,28 @@
         }
       }
     },
+    "customers.loading.description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold on while we fetch the customers"
+          }
+        }
+      }
+    },
+    "customers.loading.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading"
+          }
+        }
+      }
+    },
     "customers.nationality" : {
       "localizations" : {
         "en" : {
