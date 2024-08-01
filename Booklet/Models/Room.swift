@@ -10,25 +10,24 @@ import FirebaseFirestoreSwift
 
 struct Room: Identifiable, Codable {
     @DocumentID var id: String?
-    let uuid: UUID = .init()
+    var uuid: UUID = .init()
     var number: String
-    var type: RoomType
+    var type: String
     var capacity: Int
     var pricePerNight: Decimal
     var amenities: [String]
     var isAvailable: Bool = true
     var lastCleaned: Date?
-    
-    enum RoomType: String, Codable, CaseIterable {
-        case single
-        case double
-        case suite
-        case deluxe
-    }
 }
 
 extension Room {
     static var empty: Room {
-        Room(number: "", type: .single, capacity: 1, pricePerNight: 0, amenities: [])
+        Room(
+            number: "105",
+            type: "Double",
+            capacity: 2,
+            pricePerNight: 120,
+            amenities: ["Balcony", "Jacuzzi"]
+        )
     }
 }

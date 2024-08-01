@@ -53,6 +53,7 @@
 		42B51AFF2C5457720038808B /* CGPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B51AFE2C5457720038808B /* CGPointExtensions.swift */; };
 		42B51B012C54578A0038808B /* ScrollViewOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B51B002C54578A0038808B /* ScrollViewOffsetPreferenceKey.swift */; };
 		42B51B052C5A699C0038808B /* DateFormatter+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B51B042C5A699C0038808B /* DateFormatter+Utils.swift */; };
+		42B51B072C5B076C0038808B /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B51B062C5B076C0038808B /* RoomType.swift */; };
 		42BF3D7F2C44601300E61833 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D7E2C44601300E61833 /* AuthError.swift */; };
 		42BF3D812C44739000E61833 /* PasswordStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BF3D802C44739000E61833 /* PasswordStrengthView.swift */; };
 		42BF3D832C4476EC00E61833 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 42BF3D822C4476EC00E61833 /* Localizable.xcstrings */; };
@@ -135,6 +136,7 @@
 		42B51AFE2C5457720038808B /* CGPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
 		42B51B002C54578A0038808B /* ScrollViewOffsetPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetPreferenceKey.swift; sourceTree = "<group>"; };
 		42B51B042C5A699C0038808B /* DateFormatter+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Utils.swift"; sourceTree = "<group>"; };
+		42B51B062C5B076C0038808B /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
 		42BF3D7E2C44601300E61833 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		42BF3D802C44739000E61833 /* PasswordStrengthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStrengthView.swift; sourceTree = "<group>"; };
 		42BF3D822C4476EC00E61833 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				427B64D42C42EC21008AA0BA /* AppUser.swift */,
 				42A33B022C4B209500504009 /* Booking.swift */,
 				4207BAB02C4ED6EF007C1CAE /* Room.swift */,
+				42B51B062C5B076C0038808B /* RoomType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 				427B64D52C42EC21008AA0BA /* AppUser.swift in Sources */,
 				42B51AE22C52C29D0038808B /* FirestoreCollectionProvider.swift in Sources */,
 				42A33B012C4B1B8700504009 /* FirestoreCollection.swift in Sources */,
+				42B51B072C5B076C0038808B /* RoomType.swift in Sources */,
 				42A33B0B2C4B233A00504009 /* BookingViewViewModel.swift in Sources */,
 				42A33AF12C4AF76700504009 /* LoadingView.swift in Sources */,
 				424E7D2C2C370F63001EAD2E /* BookletApp.swift in Sources */,

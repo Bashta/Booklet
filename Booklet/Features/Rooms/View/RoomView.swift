@@ -65,7 +65,7 @@ struct RoomRowView: View {
         VStack(alignment: .leading) {
             Text("Room \(room.number)")
                 .font(.headline)
-            Text(room.type.rawValue.capitalized)
+            Text(room.type.capitalized)
                 .font(.subheadline)
             Text("Capacity: \(room.capacity)")
             Text("Price: \(room.pricePerNight, format: .currency(code: "USD"))/night")

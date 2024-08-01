@@ -813,10 +813,24 @@
       }
     },
     "room.form.title" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New room"
+          }
+        }
+      }
     },
     "room.form.type" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Room type"
+          }
+        }
+      }
     },
     "room.noRooms" : {
 
